@@ -1,0 +1,2192 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5ed">
+  <meta name="description" content="用打工人的工作情境和白話，理解 AIGC 選擇題。">
+  <title>AI 慢慢學｜打工人都聽得明的 AIGC</title>
+  <style>
+:root{--paper:#f5f5ed;--white:#fffefa;--ink:#183b35;--muted:#71827a;--green:#204e42;--deep:#173d34;--lime:#d6ed8b;--orange:#da6b42;--line:#e0e7d9;--lav:#eeebdf;--radius:18px;--sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d47c42;outline-offset:3px}a{color:inherit}.skip-link{position:fixed;z-index:999;top:-100px;left:16px;background:white;padding:10px 16px}.skip-link:focus{top:12px}.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:#fffef9;border-right:1px solid var(--line);padding:28px 19px 18px;display:flex;flex-direction:column;z-index:4;overflow-y:auto}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin:0 5px 36px}.brand-mark{height:43px;width:43px;border-radius:13px;background:var(--deep);color:var(--lime);display:grid;place-items:center;font-size:25px;font-weight:700;line-height:1}.brand strong{display:block;font-size:18px;letter-spacing:.02em;line-height:1.1}.brand small{display:block;color:#839087;font-size:10px;letter-spacing:.13em;font-weight:700;margin-top:6px}.nav-caption{font-size:10px;letter-spacing:.15em;color:#9aa89b;font-weight:800;margin:20px 11px 8px}.nav-item{width:100%;border:0;text-align:left;background:none;border-radius:11px;color:#5f746a;display:flex;align-items:center;gap:11px;padding:10px 11px;min-height:43px;font-weight:650}.nav-item:hover{background:#f4f7ee}.nav-item.active{color:var(--deep);background:#eaf2d7}.nav-item .nav-icon{width:22px;text-align:center;font-size:18px;color:#789082;line-height:1}.nav-item.active .nav-icon{color:var(--deep)}.nav-num{font-size:11px;letter-spacing:.08em;width:22px;text-align:center;font-weight:750;color:#9cac9e}.nav-item.active .nav-num{color:#567657}.side-bottom{margin-top:auto;padding:22px 11px 2px;color:#94a095;font-size:11px}.side-bottom b{color:#607a68}.main-wrap{margin-left:255px}.topbar{height:76px;padding:0 50px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:18px}.breadcrumbs{color:#829184;font-size:12px;font-weight:600}.breadcrumbs b{color:var(--deep)}.top-right{display:flex;align-items:center;gap:11px;font-size:12px;color:#6b7e70}.progress-dot{height:8px;width:8px;background:#b2d459;border-radius:50%}.content{max-width:1390px;margin:0 auto;padding:38px 50px 70px}.intro-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(250px,.8fr);gap:18px}.hero{min-height:342px;background:var(--deep);border-radius:20px;padding:38px 40px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.hero:before,.hero:after{content:'';position:absolute;right:-45px;top:-76px;border:1px solid rgba(220,239,156,.19);border-radius:50%;width:340px;height:340px}.hero:after{right:-7px;top:-38px;width:265px;height:265px}.hero>*{position:relative;z-index:1}.tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:750;letter-spacing:.08em}.hero .tag{color:#c8e69a}.tag:before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}.hero h1{font-size:clamp(34px,3.25vw,49px);line-height:1.25;letter-spacing:.025em;margin:22px 0 13px}.hero h1 span{color:var(--lime)}.hero p{color:#d7e6d7;max-width:540px;font-size:14px;line-height:1.9;margin:0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.btn{border:1px solid transparent;background:var(--deep);color:#fff;border-radius:9px;padding:11px 18px;font-size:13px;font-weight:750;min-height:44px;display:inline-flex;justify-content:center;align-items:center;gap:12px;text-decoration:none;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-1px);background:#2b6352}.btn-light{background:var(--lime);color:var(--deep)}.btn-light:hover{background:#e2f4aa}.btn-outline{background:transparent;color:var(--ink);border-color:#cbd8c7}.btn-outline:hover{background:#eef3e8}.btn-white{background:#fffefa;color:var(--ink);border-color:#dce6d7}.btn-white:hover{background:#eff6e4}.btn:disabled{opacity:.43;cursor:not-allowed;transform:none}.hero .btn-outline{color:white;border-color:#739184}.hero .btn-outline:hover{background:rgba(255,255,255,.08)}.note-card{background:#e5eed9;border-radius:20px;padding:27px 27px 22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.note-top{display:flex;justify-content:space-between;align-items:start}.note-label{font-size:10px;letter-spacing:.14em;color:#6b8667;font-weight:800}.note-symbol{font-size:25px;color:#77975c}.note-card h2{font-size:22px;line-height:1.45;margin:17px 0 13px;letter-spacing:.01em}.note-card p{font-size:13px;color:#667d69;margin:0;line-height:1.8}.mini-note{background:rgba(255,255,255,.65);border-radius:12px;padding:14px;margin-top:22px;font-size:12px;line-height:1.8;color:#607567}.mini-note strong{display:block;color:#264d3c;font-size:12px;margin-bottom:4px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:46px 0 20px}.eyebrow{color:#79947a;text-transform:uppercase;font-size:10px;font-weight:800;letter-spacing:.17em}.section-heading h2,.lesson-title{margin:6px 0 3px;font-size:26px;line-height:1.3;letter-spacing:.02em}.section-heading p{margin:0;color:#8a9a8d;font-size:12px}.lesson-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.lesson-row{border:1px solid #e5ebdf;background:var(--white);border-radius:14px;display:flex;align-items:center;gap:16px;width:100%;text-align:left;padding:17px;min-height:92px;color:var(--ink);transition:border .15s,transform .15s}.lesson-row:hover{border-color:#a7c48d;transform:translateY(-2px)}.lesson-icon{flex:none;width:48px;height:48px;border-radius:12px;background:#eef4e6;display:grid;place-items:center;color:#5e8a64;font-size:22px}.lesson-list .lesson-row:nth-child(3n + 2) .lesson-icon{background:#f6eee0;color:#bd8d54}.lesson-list .lesson-row:nth-child(3n) .lesson-icon{background:#e9efeb;color:#547b6c}.lesson-row-main{min-width:0;flex:1}.lesson-row-main small{font-size:10px;color:#9bab9a;letter-spacing:.08em;font-weight:800}.lesson-row-main strong{display:block;font-size:15px;margin:1px 0}.lesson-row-main span{display:block;color:#93a093;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row-arrow{color:#a7b6a5;font-size:19px}.page-footer{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;color:#93a194;font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.page-footer a{text-underline-offset:3px}.lesson-head{max-width:840px;margin:6px 0 30px}.lesson-head .eyebrow{color:#769670}.lesson-head h1{font-size:clamp(30px,3vw,44px);line-height:1.27;margin:11px 0 10px}.lesson-head p{color:#7b8d7e;margin:0;line-height:1.8}.lesson-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,285px);align-items:start;gap:23px}.scenario{background:#e5eed9;border-radius:18px;padding:27px 29px;margin-bottom:25px}.scenario .eyebrow{color:#728a6b}.scenario h2{font-size:20px;margin:8px 0}.scenario p{font-size:14px;line-height:1.9;color:#54715c;margin:0}.article-title{font-size:18px;margin:27px 0 14px}.concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.concept{background:var(--white);border:1px solid #e7ece1;border-radius:14px;padding:20px;min-height:188px}.concept .eyebrow{color:#d08758}.concept h3{font-size:15px;margin:11px 0 8px;line-height:1.5}.concept p{font-size:12px;line-height:1.85;color:#798a7c;margin:0}.compare{margin-top:22px;background:#fffefa;border:1px solid #e7ece1;border-radius:14px;padding:22px}.compare h3{margin:0 0 14px;font-size:15px}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.compare-item{background:#f5f7f0;padding:15px;border-radius:10px;font-size:12px;color:#718474;line-height:1.8}.compare-item strong{display:block;color:var(--ink);margin-bottom:4px;font-size:12px}.lesson-side{display:grid;gap:13px;position:sticky;top:25px}.side-card{background:var(--white);border:1px solid #e7ece1;border-radius:16px;padding:23px}.side-card h3{font-size:16px;margin:6px 0 10px}.side-card p{font-size:12px;line-height:1.9;color:#7b8c7c;margin:0}.side-card .btn{width:100%;margin-top:18px}.tip-card{background:#f8eee2;border-color:#f4e6d5}.tip-card .eyebrow{color:#cc855d}.tip-card p{color:#8b7564}.back-link{border:0;background:none;color:#748a79;padding:0;font-size:12px;font-weight:700;margin-bottom:16px}.back-link:hover{color:var(--deep)}.quiz-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.quiz-head h1{font-size:32px;margin:6px 0}.quiz-head p{margin:0;color:#8a9a8c;font-size:13px}.quiz-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:18px;align-items:start}.quiz-panel,.filter-card{background:var(--white);border:1px solid #e5ebdf;border-radius:17px}.quiz-panel{padding:29px}.filter-card{padding:19px;position:sticky;top:22px}.filter-card h2{font-size:14px;margin:0 0 12px}.filter-card label{font-size:11px;font-weight:750;color:#7f9182;display:block;margin:18px 0 6px}.filter-card select,.filter-card input[type=search]{height:41px;width:100%;border:1px solid #dce6d9;border-radius:8px;background:#fff;padding:0 10px;color:#345b49}.filter-card input[type=checkbox]{accent-color:var(--green)}.filter-card .check-line{display:flex;align-items:center;gap:8px;font-weight:650;color:#66806d;font-size:12px}.filter-help{font-size:11px;color:#9aa89c;line-height:1.8;border-top:1px solid #edf1e9;margin-top:18px;padding-top:14px}.quiz-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}.badge{display:inline-flex;background:#eaf2dd;color:#658257;padding:5px 9px;border-radius:6px;font-size:10px;letter-spacing:.05em;font-weight:800}.question-counter{font-size:11px;color:#9bab9a;font-weight:700}.quiz-meta + .question-title{margin-top:26px}.question-title{font-size:22px;line-height:1.6;margin:0 0 8px;letter-spacing:.01em}.question-hint{color:#95a295;font-size:12px;margin:0 0 20px}.options{display:grid;gap:9px}.option{border:1px solid #e3eae0;border-radius:10px;display:flex;align-items:flex-start;gap:13px;padding:13px 15px;background:#fff;cursor:pointer;transition:border .15s,background .15s}.option:hover{border-color:#b6cda8}.option.selected{border-color:#8eb874;background:#f2f7e9}.option input{appearance:none;flex:none;margin:3px 0 0;height:19px;width:19px;border:1.5px solid #cbd8c9;border-radius:50%;display:grid;place-items:center}.option input[type=checkbox]{border-radius:5px}.option input:checked{border-color:#4d7c5b;background:#4d7c5b}.option input:checked:after{content:'✓';font-size:12px;font-weight:900;color:white;line-height:1}.option-letter{color:#94a696;font-size:12px;font-weight:800;margin-top:1px}.option-text{font-size:13px;color:#536b5c;line-height:1.75}.option.correct{border-color:#91c082;background:#f1f8e9}.option.wrong{border-color:#e8b8a1;background:#fcf0ea}.quiz-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.feedback{margin-top:22px;border-radius:12px;background:#eaf3dd;padding:18px 20px}.feedback.incorrect{background:#fbf0e8}.feedback strong{font-size:14px}.feedback p{color:#637b66;font-size:13px;line-height:1.9;margin:8px 0 0}.feedback.incorrect p{color:#8c7566}.feedback .correct-answer{font-weight:750;color:#406947}.feedback.incorrect .correct-answer{color:#9d644b}.feedback-note{margin-top:9px!important;color:#8a9a88!important;font-size:11px!important}.empty{padding:35px 5px;color:#8c9c8e}.loading{padding:40px;color:#5d7862}.mobile-nav{display:none}@media(max-width:1100px){.content{padding:30px 30px 60px}.topbar{padding:0 30px}.sidebar{width:220px}.main-wrap{margin-left:220px}.concept-grid{grid-template-columns:1fr}.concept{min-height:0}.lesson-layout{grid-template-columns:minmax(0,1fr) 240px}.intro-grid{grid-template-columns:1.35fr 1fr}.hero{padding:32px}}@media(max-width:780px){.sidebar{display:none}.main-wrap{margin-left:0}.topbar{height:65px;padding:0 20px}.content{padding:23px 18px 90px}.intro-grid{grid-template-columns:1fr}.hero{min-height:320px;padding:29px 25px}.hero h1{font-size:34px}.note-card{padding:24px;min-height:210px}.note-card h2{font-size:19px}.mini-note{margin-top:16px}.lesson-list{grid-template-columns:1fr}.section-heading{margin-top:34px}.lesson-layout,.quiz-layout{grid-template-columns:1fr}.lesson-side{position:static;grid-template-columns:1fr 1fr}.side-card{padding:18px}.quiz-layout .filter-card{position:static}.filter-card{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.filter-card h2,.filter-help{grid-column:1/-1}.filter-card label{margin-top:8px}.filter-card .check-line{margin:12px 0}.filter-help{margin-top:6px;padding-top:9px}.quiz-panel{padding:22px}.quiz-head h1{font-size:28px}.mobile-nav{position:fixed;bottom:0;left:0;right:0;z-index:5;background:rgba(255,254,249,.97);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:7px 10px calc(7px + env(safe-area-inset-bottom))}.mobile-nav button{border:0;background:none;color:#879987;display:flex;flex-direction:column;align-items:center;font-size:10px;font-weight:700;gap:1px;min-width:76px}.mobile-nav button span{font-size:19px;line-height:1.3}.mobile-nav button.active{color:var(--deep)}}@media(max-width:480px){.top-right{font-size:11px}.breadcrumbs{font-size:11px}.lesson-side{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}.quiz-head{align-items:start}.quiz-head .btn{padding:9px 11px;font-size:11px}.question-title{font-size:19px}.hero:before{right:-175px}.hero:after{right:-137px}.filter-card{grid-template-columns:1fr}.filter-card h2,.filter-help{grid-column:auto}.page-footer{display:block}.page-footer div{display:block;margin-top:7px}}
+
+
+/* 每題計時器 */
+.quiz-meta{flex-wrap:wrap}.quiz-meta-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.lesson-timer{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;background:#f4f7ef;border:1px solid #e2eadb;border-radius:8px;color:#728b77;font-size:11px;white-space:nowrap}.lesson-timer strong{color:#254e3b;font-size:13px;font-variant-numeric:tabular-nums;letter-spacing:.03em}.timer-status{font-size:10px;color:#96a596}@media(max-width:480px){.quiz-meta-right{gap:8px}.lesson-timer{gap:4px;padding:4px 7px}}
+
+/* 手機版：先看題目，需要時再切換到篩選區。 */
+.quiz-panel,.filter-card{scroll-margin-top:14px}.quiz-head-actions{display:flex;gap:8px;align-items:flex-start}.mobile-filter-btn{display:none}@media(max-width:780px){.mobile-filter-btn{display:inline-flex}.filter-card .mobile-filter-btn{grid-column:1/-1;margin-top:12px}}@media(max-width:480px){.quiz-head-actions{flex-direction:column;align-items:stretch;gap:6px}.filter-card .mobile-filter-btn{grid-column:auto}}
+
+/* 本課練習計時 */
+.lesson-timer{flex-wrap:wrap}.timer-control{border:0;border-left:1px solid #d9e5d5;background:transparent;color:#355e47;font-size:11px;font-weight:750;min-height:30px;padding:2px 5px 2px 8px}.timer-control:hover{color:#112f23;text-decoration:underline}.timer-control:focus-visible{outline:2px solid #d47c42;outline-offset:2px}
+
+.reset-lesson-btn{color:#855744;border-color:#e3d6cb}.reset-lesson-btn:hover{background:#faf2e9}.reset-notice{margin:12px 0;padding:10px 12px;border-radius:9px;background:#eaf2dd;color:#416748;font-size:12px;line-height:1.6}.side-card p.reset-notice{color:#416748;margin-top:12px}
+
+/* 實操題 */
+.practical-entry{width:100%;max-width:720px}.practical-head{max-width:780px;margin:6px 0 25px}.practical-head h1{font-size:clamp(28px,3vw,40px);line-height:1.3;margin:9px 0}.practical-head p{color:#71877a;font-size:13px;line-height:1.9;margin:0}.practical-panel{max-width:920px}.practical-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:24px 0 16px}.practical-picker label{font-weight:750;font-size:12px;color:#718477}.practical-picker select{background:#fff;border:1px solid #d7e3d6;border-radius:8px;padding:9px;color:#315b47;max-width:100%;font-size:12px}.practical-picker span{font-size:11px;color:#8a9b8b}.practical-title{margin:18px 0 15px}.practical-source{background:#f7f8f2;border:1px solid #e8eee3;border-radius:13px;padding:20px}.source-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;font-size:13px;color:#526b5b}.practical-source .source-text{margin-top:8px}.practical-tip{background:#eaf2df;border-radius:13px;margin-top:16px;padding:19px 21px}.practical-tip h3,.practical-writing h3{font-size:16px;margin:7px 0}.practical-tip p,.practical-writing p{color:#668071;font-size:13px;line-height:1.85;margin:8px 0}.practical-tip ul{margin:10px 0 0;padding-left:20px;color:#53705a;font-size:12px;line-height:1.9}.practical-writing{margin-top:25px}.practical-writing label{display:block;font-size:13px;font-weight:750;margin:16px 0 7px}.practical-writing label span{color:#91a393;font-weight:400}.practical-writing textarea{display:block;width:100%;resize:vertical;min-height:110px;border:1px solid #d8e3d5;border-radius:10px;background:#fff;padding:12px;color:#244b3a;line-height:1.75;font:inherit;font-size:13px}.practical-writing textarea:focus-visible{outline:3px solid #d47c42;outline-offset:2px}.practical-writing .practical-save{font-size:11px;color:#8a9d8b}.practical-reference{margin-top:20px;border:1px solid #dfe9db;border-radius:12px;padding:15px 18px;background:#fffefa}.practical-reference summary{font-weight:750;font-size:13px;cursor:pointer;color:#355d46}.practical-reference .source-text{margin-top:14px}.practical-reference p{font-size:11px;color:#8a9c8d;line-height:1.8}.practical-panel .quiz-actions{margin-top:20px}@media(max-width:780px){.mobile-nav button{min-width:0;flex:1}.practical-picker select{flex:1 1 190px}.practical-source,.practical-tip{padding:16px}.practical-head h1{font-size:28px}}
+
+/* 超能公式教材 */
+.formula-panel,.formula-fields,.formula-example{margin-top:22px;background:#fffefa;border:1px solid #e2ebdd;border-radius:14px;padding:22px}.formula-panel h2,.formula-fields h2,.formula-example h2{font-size:19px;line-height:1.4;margin:7px 0}.formula-panel p,.formula-fields p,.formula-example p{font-size:12px;line-height:1.85;color:#718779;margin:8px 0 15px}.formula-panel label{display:block;font-size:12px;font-weight:750;margin:14px 0 7px}.formula-panel textarea{display:block;width:100%;resize:vertical;min-height:245px;border:1px solid #d5e2d4;border-radius:10px;background:#f7f9f3;padding:14px;color:#234c3a;font:inherit;font-size:13px;line-height:1.65;white-space:pre-wrap}.formula-panel textarea:focus-visible{outline:3px solid #d47c42;outline-offset:2px}.formula-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}.formula-actions span{font-size:12px;color:#64806a}.formula-field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.formula-field{padding:13px;background:#f5f8f0;border-radius:9px;font-size:12px;line-height:1.75}.formula-field strong{display:block;color:#315942;margin-bottom:3px}.formula-field span{color:#748a78}.formula-example .source-text{background:#f6f8f1;border-radius:10px;padding:15px}@media(max-width:480px){.formula-panel,.formula-fields,.formula-example{padding:17px}.formula-field-grid{grid-template-columns:1fr}}
+
+.practical-panel > .quiz-meta{justify-content:flex-end}
+
+.practical-copy{margin-top:16px;padding:17px 19px;border:1px solid #dce8d7;border-radius:13px;background:#fffefa}.practical-copy p{margin:8px 0 0;color:#748a78;font-size:12px;line-height:1.7}.practical-copy #practical-copy-status{display:block;color:#52735a;font-size:12px;margin-top:7px}.practical-copy-manual[hidden]{display:none}.practical-copy-manual label{display:block;font-size:12px;font-weight:750;margin:12px 0 6px}.practical-copy-manual textarea{display:block;width:100%;min-height:180px;resize:vertical;border:1px solid #d5e2d4;border-radius:10px;background:#f7f9f3;padding:12px;color:#244b3a;font:inherit;font-size:13px;line-height:1.7}.practical-copy-manual textarea:focus-visible{outline:3px solid #d47c42;outline-offset:2px}
+
+.practical-writing label.prompt-label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.practical-writing label .prompt-count{font-size:12px;font-weight:700;color:#688276;font-variant-numeric:tabular-nums}.practical-writing p.prompt-count-help{font-size:11px;color:#8a9d8b;margin:5px 0 0}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <div id="app"><div class="loading">正在準備你的學習筆記…</div></div>
+  <script>
+const modules = [
+  {
+    id:'basics', number:'01', icon:'✳', short:'AI 基本概念', title:'AI 其實幫緊你做乜？', eyebrow:'先搞清楚，再記名詞',
+    summary:'由「搵資料」到「整內容」，認識 AIGC 同跨模態。', time:'約 6 分鐘',
+    scenarioTitle:'老闆叫你今晚出一篇宣傳帖',
+    scenario:'以前你要自己構思、寫字、搵圖。現在你可以先交代產品和對象，請 AI 幫你寫初稿、整配圖。你再檢查資料、改到合適為止。',
+    cards:[
+      {title:'AIGC：AI 幫手產出內容',text:'AIGC 即「人工智能生成內容」。文章、圖片、音樂、影片都可以是輸出；重點是它有產生新內容。',tag:'先記意思'},
+      {title:'模態：資料的「形式」',text:'文字、圖片、聲音、影片是不同形式。文字變文字叫同模態；文字變圖片就是跨模態。',tag:'題目常考'},
+      {title:'快，不代表一定啱',text:'AI 可以快手做初稿，但未必事實正確、合乎公司口吻或適合直接發布。人仍要檢查。',tag:'工作要用'}
+    ],
+    compareTitle:'好似交工作畀同事', leftLabel:'資料 + 算力', left:'學過的資料 + 做運算的電腦資源', rightLabel:'模型 + 需求', right:'處理任務的方法 + 真正想解決的問題',
+    takeaway:'見到「跨模態」，先問自己：入去同出來，是不是兩種不同形式？',
+    ids:'Q33 Q3 Q47 Q41 Q13 Q60 Q2 M1 M4 M30 M21'
+  },
+  {
+    id:'safety', number:'02', icon:'⌁', short:'資料安全', title:'資料交出去之前，先睇清楚', eyebrow:'用寄文件來理解',
+    summary:'分清輸入、傳送、輸出風險，知道保護資料要做甚麼。', time:'約 7 分鐘',
+    scenarioTitle:'你要把客戶資料交畀同事',
+    scenario:'寄出前，要確認資料來得合法；傳送途中，防止別人偷看或改內容；收到結果後，也要檢查有沒有洩漏資料或不當內容。',
+    cards:[
+      {title:'輸入：資料進來時',text:'例如未經允許取得客戶名單，或有人故意把假資料混入訓練資料，都是值得留意的風險。',tag:'寄出之前'},
+      {title:'傳輸：資料在路上',text:'像寄信時信件被偷看、掉包，或被不應該看到的人打開。題目常用「攔截、篡改、未授權存取」。',tag:'傳送途中'},
+      {title:'保護：技術 + 制度 + 人',text:'加密好比上鎖，金鑰管理是管好鎖匙，存取控制是決定誰可以開；還要配合流程和員工培訓。',tag:'三方面一起做'}
+    ],
+    compareTitle:'風險怎樣評估？', leftLabel:'定性', left:'用描述或等級判斷，例如「高、中、低」', rightLabel:'定量', right:'用數字估算，例如發生機率和損失金額',
+    takeaway:'題庫涉及中國內地的網絡安全法、數據安全法和個人信息保護法；實際工作要依所在地及公司規定處理。',
+    ids:'Q43 Q42 Q15 Q26 Q28 Q38 Q48 Q53 Q58 M6 M10 M18 M24 M37 M38'
+  },
+  {
+    id:'video', number:'03', icon:'▧', short:'影片模型', title:'影片模型：先打包，再接住做', eyebrow:'複雜名詞用兩步記',
+    summary:'用「壓縮影片」和「預測下一步」理解 VideoGPT。', time:'約 7 分鐘',
+    scenarioTitle:'一段影片太大，要交給同事接住剪',
+    scenario:'你先把影片內容整理成較精簡的編碼，交畀同事按前後次序接續。VideoGPT 的大方向相似：先把影片壓縮成代碼，再學習這些代碼的先後關係。',
+    cards:[
+      {title:'VQ-VAE：先打包',text:'這是一種把影片壓縮成較精簡、離散代碼的方法；也有解碼部分，把代碼還原成畫面。',tag:'處理原始影片'},
+      {title:'Transformer：接住預測',text:'根據前面已有的代碼，估計接下來會是甚麼；可用注意力機制參考資料之間的關係。',tag:'處理先後關係'},
+      {title:'位置編碼：標記位置',text:'就像替文件標頁碼、替影片標時間與畫面位置，讓模型有線索分辨資料在甚麼地方。',tag:'考試名詞'}
+    ],
+    compareTitle:'各自做甚麼？', leftLabel:'VQ-VAE', left:'把影片整理成代碼，並負責還原', rightLabel:'Transformer', right:'學習代碼的次序，預測下一步',
+    takeaway:'題目所講的是特定 VideoGPT 架構；不同模型或版本的能力和實作可以不同。',
+    ids:'Q8 Q10 Q6 Q24 Q25 Q9 Q4 Q36 Q31 Q44 M8 M13 M31 M19'
+  },
+  {
+    id:'images', number:'04', icon:'◌', short:'圖像模型', title:'整圖的幾種方法', eyebrow:'先分工，再記名字',
+    summary:'搞懂擴散、GAN、DALL·E 同 Stable Diffusion 的角色。', time:'約 8 分鐘',
+    scenarioTitle:'請 AI 幫產品做一張海報',
+    scenario:'你輸入「一杯凍咖啡放在木桌上」，模型用學過的規律生成新圖片。不同模型的做法不同，不需要先背複雜數學。',
+    cards:[
+      {title:'擴散模型：由雜點慢慢變清晰',text:'學習時會處理逐漸加入雜訊的資料；生成時可由雜訊逐步去噪，做出新圖。步驟與資源消耗視模型而定。',tag:'前向加噪 / 反向去噪'},
+      {title:'GAN：一個造，一個評',text:'生成器負責造內容；判別器負責分辨真假。兩者在訓練中互相較量。',tag:'兩位搭檔'},
+      {title:'DALL·E：把文字變成圖',text:'它是文字生成圖片的模型系列。原題有些組件和流程針對舊版本；不同代的架構並不完全一樣。',tag:'記得看版本'}
+    ],
+    compareTitle:'看關鍵動作', leftLabel:'擴散', left:'由雜訊逐步去噪，形成內容', rightLabel:'GAN', right:'生成器與判別器互相較量',
+    takeaway:'題目問「反向擴散」就想「去噪」；去噪生成不等於一定還原某一張原圖。',
+    ids:'Q5 Q32 Q40 Q45 Q57 Q16 Q21 Q52 Q19 Q55 M3 M9 M34 M12 M25 M16 M17 M22 M26 M35'
+  },
+  {
+    id:'prompts', number:'05', icon:'✎', short:'提示詞', title:'同 AI 講清楚，你想它做甚麼', eyebrow:'好似寫清楚工作指示',
+    summary:'用角色、背景、任務、格式，令 AI 的回應更切題。', time:'約 6 分鐘',
+    scenarioTitle:'「幫我寫個 post」為甚麼常常不夠？',
+    scenario:'因為 AI 不知道你賣甚麼、給誰看、要甚麼語氣。就像同事只收到一句「幫我搞掂」，很難知道你心中的標準。',
+    cards:[
+      {title:'角色：用甚麼角度？',text:'例如「你是咖啡店的社交媒體編輯」。角色能幫 AI 對準工作視角，但不保證內容正確。',tag:'角色'},
+      {title:'背景 + 任務：要做甚麼？',text:'交代產品、受眾和目的，再講清楚要 AI 寫甚麼。例如「給上班族介紹新早餐」。',tag:'背景與目標'},
+      {title:'格式：交甚麼成品？',text:'說明長度、語氣、條列或表格。例如「80 字內，口語，最後附一句行動呼籲」。',tag:'輸出要求'}
+    ],
+    compareTitle:'同一件事，兩種講法', leftLabel:'太籠統', left:'「幫我寫個早餐 post。」', rightLabel:'清楚得多', right:'「為上班族寫 80 字早餐宣傳，口語，突出快捷，最後加一句邀請到店。」',
+    takeaway:'本課程的考試公式是「角色、背景、任務、格式」。提供例子也可以幫助實際工作，只是未列入這四項。',
+    ids:'Q7 Q17 Q23 Q27 Q54 Q59 Q37 Q49 Q50 Q51 Q14 Q29 M2 M5 M20 M27 M32 M36 M39'
+  },
+  {
+    id:'writing', number:'06', icon:'≋', short:'文案與工作', title:'AI 起草，人來把關', eyebrow:'把 AI 當助手，不是老闆',
+    summary:'由初稿到發布，學懂改稿、檢查，還有兩個常考文案框架。', time:'約 6 分鐘',
+    scenarioTitle:'你收到 AI 寫好的活動宣傳',
+    scenario:'先不要直接貼出去。看一看日期和價格對不對、語氣像不像公司、讀者能否看懂，然後請 AI 再改一輪，最後由人確認。',
+    cards:[
+      {title:'AIDA：先吸引，再行動',text:'Attention 注意 → Interest 興趣 → Desire 想要 → Action 行動。像寫廣告：先吸睛，最後邀請客人下單。',tag:'A → I → D → A'},
+      {title:'PAS：問題到解法',text:'Problem 問題 → Agitate 說明困擾 → Solution 解決方案。例如「早餐趕時間 → 容易餓到中午 → 試試外帶早餐」。',tag:'P → A → S'},
+      {title:'改稿不是只看字數',text:'檢查事實、條理、受眾和語氣；給具體意見，多試幾輪。字寫得長、生成得快，都不等於寫得好。',tag:'實際工作'}
+    ],
+    compareTitle:'怎樣分工？', leftLabel:'AI 可以做', left:'整理想法、生成初稿、提供改寫方向', rightLabel:'人要負責', right:'訂方向、核對資料、修改細節、決定能否發布',
+    takeaway:'多選題逐項判斷：看似有用的做法，是否真的有助「質量」，還是只令速度或字數增加？',
+    ids:'Q1 Q11 Q12 Q18 Q22 Q20 Q34 Q30 Q46 M7 M11 M14 M15 M23 M28 M33'
+  },
+  {
+    id:'ethics', number:'07', icon:'◇', short:'風險與倫理', title:'好用之餘，也要用得放心', eyebrow:'發布之前多問一句',
+    summary:'看懂假資訊、私隱和不當內容的風險。', time:'約 5 分鐘',
+    scenarioTitle:'AI 幫你寫了一篇「客戶見證」',
+    scenario:'內容讀起來很流暢，但引用的客戶和數字可能根本不存在。發布前要找來源核實；涉及個人或公司資料，亦要先按規定處理。',
+    cards:[
+      {title:'內容要查證',text:'AI 可能寫得很肯定，但資料仍可能有錯或虛構。尤其涉及數字、姓名、報價和引用時，要找可靠來源。',tag:'防假資訊'},
+      {title:'資料要保護',text:'未經批准，不要把客戶個人資料、公司機密或敏感文件貼進外部工具；先確認公司規定。',tag:'保護私隱'},
+      {title:'規則與技術要配合',text:'加密、存取權限、清晰流程和員工意識各有作用；沒有任何單一措施可以解決所有問題。',tag:'多層保障'}
+    ],
+    compareTitle:'交功課前的兩問', leftLabel:'內容', left:'有沒有核實來源？有沒有不實或不當內容？', rightLabel:'資料', right:'是否獲准使用？會不會洩露私隱或機密？',
+    takeaway:'留意「不包括」「錯誤的是」等反向題：先看清楚題目要你選問題，還是選不是問題的選項。',
+    ids:'Q35 Q39 Q56 M29 M40'
+  },
+  {
+    id:'superformula', number:'08', icon:'✦', short:'實操題超能公式', title:'實操題超能公式', eyebrow:'像向同事交代工作',
+    summary:'用適合題目的欄位，請 AI 幫你整理和優化提示詞。', time:'約 6 分鐘',
+    scenarioTitle:'同事交來一條實操題，你不知怎樣寫提示詞',
+    scenario:'先複製下面的超能公式，把題目貼在「題目如下」後面，再請 AI 幫你整理成清楚的指示。收到結果後，對照原題檢查有沒有漏掉要求。',
+    cards:[
+      {title:'先說清楚要做甚麼',text:'任務、要求和回答格式，幫 AI 明白要做哪件事、有哪些限制，以及成品應怎樣排列。',tag:'最常用'},
+      {title:'需要資料才補上',text:'原文、輸入資料、示例或檢索結果，可在題目需要時提供。沒有的資料不用硬填。',tag:'按情況選'},
+      {title:'最後由你核對',text:'AI 可以幫忙整理提示詞，但仍要檢查它有沒有改錯數字、漏掉條件或自行加資料。',tag:'交功課前'}
+    ],
+    compareTitle:'好似向同事派工作', leftLabel:'交代太少', left:'「幫我寫個通知。」', rightLabel:'交代清楚', right:'「根據提供的維護時間，寫一段 80 字內的內部通知，提醒同事先儲存工作。」',
+    takeaway:'唔需要全部用。揀適合題目的欄位；沒有實際檢索結果，就不要叫 AI 假裝已經找到資料。',
+    ids:'', practiceTarget:'practical', formula:true
+  }
+];
+
+const superFormula = `根據給你的題目用以下方法優化提示詞，不一定要全用，選擇合適的：
+## 角色設定
+## 任務
+## 要求
+## 回答格式
+## 示例
+## 文本內容
+## 檢索結果
+## 問題
+## 輸入
+## 輸出
+
+題目如下：`;
+const formulaFields = [
+  ['角色設定','想 AI 以甚麼身份或角度處理，例如行政助理。'],
+  ['任務','要 AI 做甚麼，例如寫通知、整理資料或設計圖片。'],
+  ['要求','交代限制和重點，例如受眾、字數、語氣或不可遺漏的內容。'],
+  ['回答格式','成品應怎樣排列，例如標題加正文、條列或表格。'],
+  ['示例','有合適例子時，給 AI 看一個你想要的樣子。'],
+  ['文本內容','放入要處理的原文，例如一封電郵或一段客服對話。'],
+  ['檢索結果','放入你或工具實際找到的資料；沒有就略過，不要假裝已搜尋。'],
+  ['問題','寫出要回答的具體問題，例如「還剩多少支畫筆？」。'],
+  ['輸入','放入 AI 要使用的資料，例如題目數據或產品資料。'],
+  ['輸出','說明最後需要甚麼結果；若已寫明回答格式，可按需要合併。']
+];
+
+const explanations = {
+Q33:'AIGC 是「人工智能生成內容」：讓 AI 產生文章、圖片等內容。題目要認名稱，對應 D。',
+Q3:'文字、影片和圖片都可由 AI 生成；GPS 中頻數字信號是接收衛星訊號的工程資料，不是這題說的生成內容。',
+Q47:'AI 可以很快做出初稿，所以題目選速度更快；內容是否專業、穩定，仍要看工具和人工檢查。',
+Q41:'題目講的推動因素是數據、算力、模型和使用需求；「慢工出細活」是工作態度，並非這裏列出的技術推動因素。',
+Q13:'大型模型預訓練通常需要很多運算資源，並非大多能靠單台伺服器完成。實際需求仍要看模型大小。',
+Q60:'很多大模型會先利用大量未逐筆標註的資料學習，再按需要進一步調整；題目說主要依靠大量標註資料進行有監督預訓練，並不符合題庫描述。',
+Q2:'「模態」是資料形式。文字輸入、圖片輸出，前後形式不同，就是題目所說的跨模態。',
+Q43:'輸入端像收貨入口：資料若是非法取得，或被人混入有害內容，問題在資料進來時已出現。其他風險也可能在不同階段發生。',
+Q42:'題庫把「指令注入」列作相關攻擊：有人在輸入內容中藏指令，嘗試影響 AI 的行為或輸出；它並非只會發生在輸出端。',
+Q15:'傳送資料時可能被偷看、改動或未經授權存取；訓練偏見主要是模型學習與資料上的問題，不是這題所問的傳送風險。',
+Q26:'WannaCry 勒索軟件事件是題目列出的典型網絡攻擊案例，因此選 B。其他事故也可能涉及安全或私隱，只是本題的考察重點不同。',
+Q28:'按本課程的中國內地法律框架，重點是網絡安全法、數據安全法和個人信息保護法；C 不在題目列出的這個框架內。',
+Q38:'加密像上鎖、金鑰管理像管鎖匙、存取控制像決定誰能開門；市場營銷是經營活動，並非本題所列的技術保障。',
+Q48:'本題的安全自查聚焦組織、人員培訓和流程；市場營銷計劃不是這個自查清單的主要項目。',
+Q53:'題目中「概率分析」是用數字計算可能性，歸為定量；風險矩陣、專家意見等在此按教材歸為定性。實際方法有時也會混合使用。',
+Q58:'本題按教材記中國內地的網安、數安、個保三項法律；反壟斷法主要管市場競爭，不是這個清單中的答案。',
+M1:'題庫將快速製作、跨模態及 AI 生成列為特點。實際上 AI 與人可以共同創作，不必把「AI 輔助」與 AIGC 看成完全對立。',
+M4:'逐個看輸入和輸出：圖→文、文→圖、文→影片是不同形式；音→音前後同屬聲音，所以不選 A。',
+M30:'前後都是文字、圖片或影片，屬題目所說的單模態；文字變圖片是不同形式，所以 C 不選。',
+M21:'按這題分類，音樂與影片創作、虛擬偶像及社交互動屬娛樂場景；新聞稿主要歸在新聞媒體。現實中的分類可以有重疊。',
+M6:'防風險要有工具、有制度、有人懂得做：更新防護、管理資料、培訓員工都要配合；忽視風險或只靠外部監管不足夠。',
+M10:'資料在路上可能被攔截、改動或讓未獲授權的人看到；分類分級不當則屬資料管理問題，題目不列為傳輸端答案。',
+M18:'新風險可能複雜、難預料、傳得快又不易察覺。題庫不把「穩定性」列入這些特點；現實風險仍需逐項分析。',
+M24:'按本課程的中國內地框架，網絡安全法、個人信息保護法和數據安全法是清單中的三項；勞動法不在本題清單。',
+M37:'定性是用類別或描述判斷，定量是用數字估算。這題選兩類正式評估方法；經驗與專家判斷可作參考，但不等同題目列出的完整方法。',
+M38:'加密、管理金鑰及限制存取權限都是技術防護；市場營銷屬於另一類工作，所以不選 D。',
+Q8:'最初的 Transformer 論文主要處理語言序列，按原題選文字。後來也有用於圖片、聲音等資料的變體。',
+Q10:'Transformer 是題目中的主流架構之一；它可透過注意力機制參考不同資料之間的關係，不需要把其他架構當成完全沒用。',
+Q6:'把影片想成一份很大的文件：題目所指的 VQ-VAE 會先把它整理成比較精簡的離散代碼，供後續處理。',
+Q24:'題目中的 VideoGPT 先用 VQ-VAE 把影片壓縮成代碼，再交由 Transformer 學習代碼的次序。',
+Q25:'記分工就好：VQ-VAE 先打包影片資訊；Transformer 根據前後關係預測代碼。原題答案是 B。',
+Q9:'原題參考答案是 D。這是特定模型的實作細節，題目對「位置編碼」的表述較專門；不要把它當作所有 VQ-VAE 模型的通則。',
+Q4:'在這個 VideoGPT 流程中，Transformer 著重學習影片代碼的次序和預測下一步；圖像分類不是題目問的主要工作。',
+Q36:'Transformer 像接力寫故事，參考前面的代碼估計下一步；壓縮原影片主要是 VQ-VAE 的工作。',
+Q31:'原題答案是 B，題意是 Transformer 不是單純靠全連接網絡取代注意力。注意：Transformer 內部仍可有全連接層，不能說它完全沒有。',
+Q44:'原題參考答案是 A，但選項更像模型設定，而非精確描述訓練目標。理解時記住 VQ-VAE 要學懂壓縮與重建，不宜把題目措辭當通用定義。',
+Q5:'正向是逐步加雜訊；反向是逐步去噪。生成時可由雜訊做出新內容，不代表一定複製某張原始圖片。',
+Q32:'SGM 的 score 可想成「往較像資料的方向走」的提示：模型學習這個方向來協助生成。這裏的「評分」不是人給圖片打星。',
+Q40:'DDPM 是一類透過逐步去噪來生成內容的擴散模型；在這題選項中，生成高質量圖像最符合主要用途。',
+Q45:'原題參考答案是 DDPM（A）。「貝葉斯去噪」不是只有一種架構才可用的專屬標籤，這題適合按教材記，不能推廣成通則。',
+Q57:'題目重點是擴散模型可能需要較多計算資源。實際快慢與成本會隨模型、硬件及採用的生成步數而變。',
+Q16:'第一代 DALL·E 由 OpenAI 在 2021 年公布；這是記年份的題目，不同後續版本有不同發布時間。',
+Q21:'DALL·E 由 OpenAI 開發，因此本題選 C。',
+Q52:'題目把最後產生圖片的步驟叫「圖像解碼」：文字先被處理，之後才輸出圖片。不同代 DALL·E 的具體流程不同。',
+Q19:'DALL·E 主要是生成圖片，可幫設計、廣告和插畫；自動駕駛不是這題所列的主要用途。',
+Q55:'基本 VQ-VAE 著重編碼和解碼；GAN 有生成器和判別器互相較量。因此「兩者都包含生成器和判別器」不是這題的正確描述。',
+M3:'Stable Diffusion 主要處理圖像生成，可用於藝術，亦可在研究或處理醫學圖像的特定場景使用；語音識別和一般文字處理不是本題重點。',
+M9:'題庫把圖像質量、訓練相對穩定及不需 GAN 式對抗訓練列為優點。資源需求要看具體模型，不能一概說「一定很少」或「一定很大」。',
+M34:'這題要記擴散模型的加噪與去噪。判別器是 GAN 的標誌；特徵提取在不少模型也可能用到，但不是這題列出的兩個核心步驟。',
+M12:'前向是加噪，反向是去噪；「向上、向下」只是這道題的干擾選項。',
+M25:'題庫選圖像質量和多樣性。訓練速度及資源用量不能一概保證，須看具體模型與設備。',
+M8:'原題把五項都列為優點。效率、畫質和文字控制能力取決於具體模型與版本；不要理解成所有 VideoGPT 都一定能文字生成影片。',
+M13:'Space-Only 可理解成主要處理每一幀的空間畫面，保留時間長度；在題目比較的做法下，也能減少參數和計算量。',
+M31:'這題考的是從自行準備環境、資料、訓練到生成的完整流程，所以原題全選。實際若直接使用現成工具，未必需要自己完成每一步。',
+M16:'原題把文字編碼、先驗模型及圖像解碼列為流程。要留意這是特定版本的描述，不同代 DALL·E 的生成架構不一樣。',
+M17:'原題列 dVAE、Transformer、CLIP 三個名稱。第一代 DALL·E 用 Transformer 及離散圖像表示，CLIP 可用來排序結果；不同版本分工不同。',
+M22:'GAN 常見兩個角色：生成器造內容，判別器判斷真假；長短期記憶不是這題要找的兩個角色。',
+M26:'看名稱：DCGAN、Wasserstein GAN、CycleGAN 都是 GAN 家族；ANN 是這題的干擾項。',
+M19:'原題選 A、B、D，並排除「尺寸無限制」及「質量已無提升空間」。文字驅動能力要看具體版本，不能套用到所有 VideoGPT。',
+M35:'題目描述的是自行部署某套影片模型的流程：下載程式與模型、安裝環境、再執行。使用其他現成服務時，步驟可以不同。',
+Q7:'提示詞就是你交給 AI 的指示；這題把它用於改善語言模型的回應，所以選 B。',
+Q17:'把要求講清楚，通常有助回應更切題；這不等於你改變了模型的訓練速度或儲存效率。',
+Q23:'在這題選項中，交代具體背景最能讓 AI 明白你要做甚麼；故意用複雜或抽象字眼不會自動帶來好答案。',
+Q27:'課程四項是角色、背景、任務、格式，所以題庫選「提供示例」。實際做事時加例子仍常有幫助，並不是說不能用。',
+Q54:'寫提示詞時，你較直接能控制的是對象、目標和表達效果；不一定要懂模型內部怎樣訓練。',
+Q59:'清楚寫目標、背景、格式和語氣比較有用；複雜術語不是必要條件，應以讀者和任務需要為準。',
+Q37:'嘗試不同角色、角度或寫法，可幫你得到多樣想法；不代表每次都一定更有創意，仍要挑選和修改。',
+Q49:'若想要特定行業的內容，可在指示中交代行業、受眾和合適用詞，幫 AI 對準語境；仍須核對專業資料。',
+Q50:'你可以直接指定文案的內容、語氣和格式，像向同事交代成品要求；這比改模型參數更符合本題意思。',
+Q51:'把你要找的人、事、範圍和目的講清楚，有助系統理解你的搜尋意圖，但結果仍需核實。',
+Q14:'翻譯時補充背景、受眾或專業語境，能幫模型挑更合適的說法；重要文件仍要人工核對。',
+Q29:'提示詞可被人用來誘導產生有害或不適當內容；其他選項談的是速度、計算或技能，並非這題的倫理重點。',
+M2:'生成式提示可以產生不同內容、依賴上下文，也可要求風格一致；它不保證每次輸出完全固定。',
+M5:'講清楚目標、背景和格式，用簡單直接的字；不是愈多複雜術語就愈好。',
+M20:'只要系統支援，提示詞可協助搜尋、寫作、分類、翻譯和對話等任務，所以原題五項全選。',
+M27:'背景、語氣、行動要求、時間地點等都可以寫進指示；是否需要加入，要看當次工作。',
+M32:'理解工具、反覆調整、組合不同指示都有幫助；忽略使用者反饋，或只用一條空泛指令，未必能改善效果。',
+M36:'角色指示是告訴 AI 從甚麼角度工作，例如「你是客服」。篇幅和語氣可以另外交代；這題按主要用途選 A、C。',
+M39:'原題選 A、C：語言模型會根據上下文及機率生成文字；採樣等設定會影響結果。它不代表生成時完全不看上下文。',
+Q1:'在題目的分工中，人要先決定方向、收集資料；AI 可協助起草，人之後仍要核實和修改。',
+Q11:'題目只問文案質量時，語言理解和表達能力最直接；真正選工具時也要考慮價格、私隱、穩定性等。',
+Q12:'AI 能快速整理和生成初稿，最直接幫到的是寫作效率；是否可用仍要人審核。',
+Q18:'AIDA 的 A 是 Attention，即先引起注意；之後才引起興趣、讓人想要，最後引導行動。',
+Q22:'PAS 先提出問題（Problem），再說明困擾（Agitate），最後給解法（Solution）；第二步是 D。',
+Q20:'一份初稿未必合適，要看結果、給意見、再修改；這種反覆調整叫迭代優化。',
+Q34:'AI 起稿之後，下一步是由人編輯和優化，核對內容和語氣；不要直接當作可發布的成品。',
+Q30:'準確、通順、有創意都和文案質量有關；生成速度是效率指標，不是本題評估內容質量的重點。',
+Q46:'即使 AI 很快寫好，也不能完全相信初稿；事實、語氣和是否符合要求都要人檢查。',
+M7:'宣傳文案通常要簡潔、讓人有共鳴、講出價值並引導行動；詳細產品歷史不是每篇宣傳文案都必須有。',
+M11:'多試幾次、給具體回饋、人工修改和持續改進都可幫助優化；只靠同一條指令，不一定足以解決問題。',
+M14:'題目問的是「文案寫作」方面的改變：圖片生成和語音識別不是這個範圍，所以選 B、E。',
+M15:'多輪生成、按反饋修改、參考合適數據都有助改稿；一味加長或只用同一條提示不保證更好。',
+M23:'PAS 是問題（Problem）、說明困擾（Agitate）、解決方法（Solution）。Attention 是 AIDA 的 A，不在 PAS 三步內。',
+M28:'選工具要看語言能力、評價、易用程度、速度和預算；實際工作也應考慮私隱、安全和使用規定。',
+M33:'人要定方向、收集及核實資料、把關和修改。AI 可幫忙起草或擴寫，但人也可以親自寫，分工並非固定。',
+Q35:'這題要找倫理風險：傳播虛假資訊會誤導別人；其餘選項描述的是可能的正面影響。',
+Q39:'題目問「不包括危害」，所以找正面影響：增加就業機會。現實中就業影響會因行業及情況而異。',
+Q56:'題庫單選 B，重點是以法規和制度建立保障；加密也是重要措施，實際保護私隱通常要制度、技術和人員一起配合。',
+M29:'不實資訊、私隱擔憂和倫理問題都是題目列出的風險；「縮小貧富差距」本身不是危害，但現實影響需要具體分析。',
+M40:'加密、制度及提升意識都能協助保護私隱。題庫不選全面限制應用；實際上特定高風險用途可能需要適當限制。'
+};
+
+
+const questions = [
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q33",
+    "q": "AIGC是指？",
+    "o": [
+      "专业内容生成",
+      "用户内容生成",
+      "AI辅助内容生成",
+      "人工智能内容生成"
+    ],
+    "a": "D",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q3",
+    "q": "下列不属于AIGC生成内容范围的是？",
+    "o": [
+      "文本内容",
+      "视频内容",
+      "GPS中频数字信号",
+      "图像内容"
+    ],
+    "a": "C",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q47",
+    "q": "AIGC相比以人工为主内容生成的优势是？",
+    "o": [
+      "速度更快",
+      "内容更专业",
+      "成本更高",
+      "内容更稳定"
+    ],
+    "a": "A",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q41",
+    "q": "下面不属于AIGC发展驱动因素的是？",
+    "o": [
+      "更多的数据和算力",
+      "慢工出细活的工匠精神",
+      "更好的模型",
+      "更丰富的应用需求"
+    ],
+    "a": "B",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q13",
+    "q": "关于AIGC算力的表述错误的是？",
+    "o": [
+      "在AIGC领域，算力一般是指GPU/TPU为主的AI专用加速器的计算和传输能力",
+      "AIGC模型的规模和复杂度不断增加，对算力的需求也在急剧上升",
+      "大部分AIGC大模型单台服务可完成预训练",
+      "数据和算力对AIGC的发展都很重要"
+    ],
+    "a": "C",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q60",
+    "q": "关于AIGC数据的表述错误的是？",
+    "o": [
+      "数据是AIGC发展的基础要素",
+      "数据的质量、多样性和规模对AIGC模型的性能有着直接影响",
+      "AIGC大模型以大规模标注数据有监督预训练为主",
+      "没有足够的数据，AIGC大模型无法进行有效的训练和优化"
+    ],
+    "a": "C",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q2",
+    "q": "AIGC的跨模态生成是指？",
+    "o": [
+      "模型的输入是两个不同的模态",
+      "模型的输入和输出属于不同的模态",
+      "模型的输出是两个不同的模态",
+      "模型的输入和输出都是两个不同的模态"
+    ],
+    "a": "B",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q43",
+    "q": "数据安全风险分析中，哪一项属于数据输入端的风险？",
+    "o": [
+      "数据非法获取与投毒风险",
+      "数据训练偏见风险",
+      "数据泄露风险",
+      "恶意内容生成风险"
+    ],
+    "a": "A",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q42",
+    "q": "在数据输出端，恶意内容生成风险主要包括下列哪种攻击方式？",
+    "o": [
+      "数据非法获取",
+      "指令注入攻击",
+      "数据泄露",
+      "数据训练偏见"
+    ],
+    "a": "B",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q15",
+    "q": "根据课程内容，数据传输端的风险不包括下列哪项？",
+    "o": [
+      "数据拦截风险",
+      "数据篡改风险",
+      "数据训练偏见风险",
+      "未经授权访问风险"
+    ],
+    "a": "C",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q26",
+    "q": "以下哪个案例体现了网络安全防护的重要性？",
+    "o": [
+      "某公司员工误将重要文件发送至错误邮箱",
+      "\"WannaCry\"勒索病毒事件",
+      "某工厂电力故障导致设备损坏",
+      "某社交应用未考虑用户隐私引发抵制"
+    ],
+    "a": "B",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q28",
+    "q": "关于数据安全需求分析，以下哪项不属于法律法规保障层面？",
+    "o": [
+      "网络安全法",
+      "个人信息保护法",
+      "市场准入法",
+      "数据安全法"
+    ],
+    "a": "C",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q38",
+    "q": "数据安全需求分析中提到的技术层面保障不包括以下哪项？",
+    "o": [
+      "加密技术",
+      "密钥管理",
+      "访问控制",
+      "市场营销策略"
+    ],
+    "a": "D",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q48",
+    "q": "在企业自查层面的需求分析中，哪项不是必需的？",
+    "o": [
+      "组织架构建设",
+      "培训计划",
+      "市场营销策略",
+      "流程管理"
+    ],
+    "a": "C",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q53",
+    "q": "传统安全风险评估的定性评估方法不包括以下哪种？",
+    "o": [
+      "风险矩阵法",
+      "概率分析",
+      "德尔菲法",
+      "情景分析法"
+    ],
+    "a": "B",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "s",
+    "id": "Q58",
+    "q": "数据安全政策与标准现状中提到的法律框架层面，不包括以下哪项？",
+    "o": [
+      "网络安全法",
+      "反垄断法",
+      "个人信息保护法",
+      "数据安全法"
+    ],
+    "a": "B",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M1",
+    "q": "下列属于AIGC特点的是？",
+    "o": [
+      "AI为辅人工为主",
+      "快速低成本制作",
+      "跨模态生成内容丰富",
+      "AI端到端生成"
+    ],
+    "a": "BCD",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M4",
+    "q": "以下属于跨模态AIGC的是？",
+    "o": [
+      "音频生音频",
+      "图生文",
+      "文生图",
+      "文生视频"
+    ],
+    "a": "BCD",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M30",
+    "q": "以下属于单模态AIGC的是？",
+    "o": [
+      "文生文",
+      "图生图",
+      "文生图",
+      "视频生视频"
+    ],
+    "a": "ABD",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M21",
+    "q": "下列属于AIGC在娱乐领域的应用场景的是？",
+    "o": [
+      "音乐、绘画、视频等内容创作",
+      "虚拟偶像生成",
+      "社交互动",
+      "新闻报道稿件生成"
+    ],
+    "a": "ABC",
+    "module": "basics"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M6",
+    "q": "传统安全风险的应对策略包括？",
+    "o": [
+      "技术手段，如更新安全防护系统",
+      "管理措施，如制定严格的数据管理制度",
+      "人员培训，提高安全意识和防范能力",
+      "忽视风险，不采取任何措施",
+      "仅依靠政府监管"
+    ],
+    "a": "ABC",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M10",
+    "q": "在数据传输端，存在哪些风险？",
+    "o": [
+      "数据拦截风险",
+      "数据篡改风险",
+      "未经授权访问风险",
+      "数据分类分级不当风险"
+    ],
+    "a": "ABC",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M18",
+    "q": "新兴安全风险的特点有？",
+    "o": [
+      "技术复杂性",
+      "不确定性",
+      "传播快速性",
+      "隐蔽性",
+      "稳定性"
+    ],
+    "a": "ABCD",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M24",
+    "q": "数据安全政策与标准现状中，哪些属于法律框架层面的法律？",
+    "o": [
+      "网络安全法",
+      "个人信息保护法",
+      "劳动法",
+      "数据安全法"
+    ],
+    "a": "ABD",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M37",
+    "q": "评估传统安全风险的方法有？",
+    "o": [
+      "定性评估，如风险矩阵法、德尔菲法",
+      "定量评估，如概率分析、蒙特卡罗模拟",
+      "主观判断",
+      "完全不评估",
+      "依靠经验评估"
+    ],
+    "a": "AB",
+    "module": "safety"
+  },
+  {
+    "r": 1,
+    "t": "m",
+    "id": "M38",
+    "q": "技术层面保障措施中，哪些是必要的？",
+    "o": [
+      "加密技术",
+      "密钥管理",
+      "访问控制",
+      "市场营销策略"
+    ],
+    "a": "ABC",
+    "module": "safety"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q8",
+    "q": "原生Transformer模型的输出是？",
+    "o": [
+      "图像",
+      "视频",
+      "音频",
+      "文本"
+    ],
+    "a": "D",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q10",
+    "q": "以下哪种模型架构被广泛应用于AIGC并具有显著的优势？",
+    "o": [
+      "CNN（卷积神经网络）",
+      "RNN（循环神经网络）",
+      "LSTM（长短时记忆网络）",
+      "Transformer"
+    ],
+    "a": "D",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q6",
+    "q": "VideoGPT中用于学习原始视频下采样离散潜在表示的技术是？",
+    "o": [
+      "RNN",
+      "CNN",
+      "VQ-VAE",
+      "GAN"
+    ],
+    "a": "C",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q24",
+    "q": "在VideoGPT模型中，原始视频数据首先通过什么进行处理？",
+    "o": [
+      "通过Embedding进行向量化",
+      "由VQ-VAE进行下采样并转换为离散潜在变量",
+      "经过卷积神经网络处理",
+      "由Transformer架构的GPT提取特征"
+    ],
+    "a": "B",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q25",
+    "q": "VideoGPT模型的主体包含哪两个主要结构？",
+    "o": [
+      "VQ-VAE和BiLSTM",
+      "VQ-VAE和Transformer",
+      "VQGAN和Transformer",
+      "BiLSTM和VQGAN"
+    ],
+    "a": "B",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q9",
+    "q": "以下关于VideoGPT中VQ-VAE位置编码的说法，正确的是？",
+    "o": [
+      "初始值不是随机生成的",
+      "只有编码器才需要共享，解码器不需要",
+      "是固定不变的时空嵌入",
+      "在编码器和解码器的所有轴向注意力层之间共享"
+    ],
+    "a": "D",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q4",
+    "q": "在VideoGPT中，以下哪个不是Transformer的作用？",
+    "o": [
+      "对离散潜在变量进行自回归建模",
+      "进行图像分类",
+      "结合时空位置编码理解视频序列",
+      "预测下一个时间步的离散潜在表示"
+    ],
+    "a": "B",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q36",
+    "q": "在VideoGPT模型中，Transformer模型的作用是？",
+    "o": [
+      "对视频进行下采样",
+      "将离散潜在表示转换为连续像素值序列",
+      "预测下一个时间步的离散潜在表示",
+      "压缩和抽象化视频数据"
+    ],
+    "a": "C",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q31",
+    "q": "以下关于VideoGPT的说法错误的是？",
+    "o": [
+      "主要由VQ-VAE和Transformer组成",
+      "Transformer采用全连接网络结构",
+      "VQ-VAE包含编码器和解码器",
+      "Transformer通过自注意力机制处理视频信息"
+    ],
+    "a": "B",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q44",
+    "q": "在VideoGPT模型中，VQ-VAE使用什么目标进行训练？",
+    "o": [
+      "潜在空间的大小、码本的数量和自回归先验的容量",
+      "视频的分辨率和帧率",
+      "模型的训练时间和计算资源消耗",
+      "数据集的大小和多样性"
+    ],
+    "a": "A",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q5",
+    "q": "扩散模型的\"反向扩散过程\"指的是：",
+    "o": [
+      "从噪声恢复原始数据的过程",
+      "从数据生成噪声图像的过程",
+      "训练模型以最小化噪声",
+      "将数据映射到潜在空间的过程"
+    ],
+    "a": "A",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q32",
+    "q": "在扩散模型中，SGMs（Score-based Generative Models）的核心思想是：",
+    "o": [
+      "使用条件生成模型提高生成质量",
+      "通过优化评分函数来生成高质量图像",
+      "使用预训练模型加速生成过程",
+      "将数据分布转化为高斯分布"
+    ],
+    "a": "B",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q40",
+    "q": "在扩散模型中，DDPM（Denoising Diffusion Probabilistic Models）主要用于：",
+    "o": [
+      "生成高质量的图像",
+      "优化模型训练过程",
+      "加快图像生成速度",
+      "减少生成过程中的噪声"
+    ],
+    "a": "A",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q45",
+    "q": "哪个扩散模型架构使用了\"最优贝叶斯去噪\"？",
+    "o": [
+      "DDPM",
+      "SDEs",
+      "SGMs",
+      "GANs"
+    ],
+    "a": "A",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q57",
+    "q": "扩散模型的局限性中，哪一项最为突出？",
+    "o": [
+      "高质量生成图像所需的计算资源非常大",
+      "生成过程的噪声不可控",
+      "训练过程的时间过长",
+      "不适用于大规模数据集"
+    ],
+    "a": "A",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q16",
+    "q": "DALL·E的首次发布是在什么时间？",
+    "o": [
+      "2019年",
+      "2020年",
+      "2021年",
+      "2022年"
+    ],
+    "a": "C",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q21",
+    "q": "DALL·E是由哪家公司开发的？",
+    "o": [
+      "Google",
+      "Facebook",
+      "OpenAI",
+      "Microsoft"
+    ],
+    "a": "C",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q52",
+    "q": "DALL·E的工作流程中，哪个阶段负责生成最终图像？",
+    "o": [
+      "数据预处理",
+      "文本编码",
+      "图像解码",
+      "模型训练"
+    ],
+    "a": "C",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q19",
+    "q": "DALL·E模型的应用场景中，以下哪项不是其主要应用？",
+    "o": [
+      "创意设计",
+      "自动驾驶汽车",
+      "广告创意",
+      "插画设计"
+    ],
+    "a": "B",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "s",
+    "id": "Q55",
+    "q": "以下关于VQ-VAE和GAN的说法错误的是？",
+    "o": [
+      "VQ-VAE主要用于图像和视频的编码与解码，GAN主要用于生成新的图像",
+      "VQ-VAE和GAN都包含生成器和判别器",
+      "VQ-VAE通常采用自编码器结构，GAN由生成器和判别器组成",
+      "VQ-VAE的训练目标是最小化重建误差，GAN的训练目标是使生成器生成的图像骗过判别器"
+    ],
+    "a": "B",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M3",
+    "q": "以下哪些领域可以应用Stable Diffusion技术？",
+    "o": [
+      "医学图像处理",
+      "语音识别",
+      "艺术创作",
+      "自然语言处理"
+    ],
+    "a": "AC",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M9",
+    "q": "Stable Diffusion技术在图像生成中的优势有哪些？",
+    "o": [
+      "生成图像质量高",
+      "训练稳定性好",
+      "不需要对抗训练",
+      "所需计算资源少"
+    ],
+    "a": "ABC",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M34",
+    "q": "Stable Diffusion技术的核心步骤包括哪些？",
+    "o": [
+      "噪声添加",
+      "图像去噪",
+      "特征提取",
+      "判别器训练"
+    ],
+    "a": "AB",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M12",
+    "q": "扩散模型包含哪两个过程？",
+    "o": [
+      "前向扩散过程",
+      "反向扩散过程",
+      "向上扩散过程",
+      "向下扩散过程"
+    ],
+    "a": "AB",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M25",
+    "q": "扩散模型的主要优点包括哪些？",
+    "o": [
+      "生成的图像质量高",
+      "训练过程非常快速",
+      "能够生成多样化的图像",
+      "需要较少的计算资源"
+    ],
+    "a": "AC",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M8",
+    "q": "以下关于VideoGPT模型的优点，说法正确的有？",
+    "o": [
+      "高效的视频生成能力",
+      "高质量的生成结果",
+      "强大的扩展性和适应性",
+      "广泛的应用前景",
+      "文本驱动的生成能力"
+    ],
+    "a": "ABCDE",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M13",
+    "q": "Space-Only 3D卷积的优点包含如下哪些？",
+    "o": [
+      "保持时间长度",
+      "减少参数和计算量",
+      "加大时间长度",
+      "加大参数和计算量"
+    ],
+    "a": "AB",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M31",
+    "q": "在使用VideoGPT模型进行视频创作时，需要进行以下哪些操作？",
+    "o": [
+      "进行环境配置，搭建适合模型运行的开发环境，安装必要的依赖和插件",
+      "构建数据集，包括获取、整理和预处理相关数据",
+      "对VQ-VAE使用pretrained模型训练，使其能够学习到有效的视频潜在表示",
+      "对Transformer进行训练，以提升模型对视频序列的理解和生成能力",
+      "进行推理使用，利用训练好的模型生成所需的视频内容"
+    ],
+    "a": "ABCDE",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M16",
+    "q": "DALL·E的工作流程中，哪些步骤是必要的？",
+    "o": [
+      "文本编码",
+      "先验分布模型",
+      "图像解码",
+      "图像编码"
+    ],
+    "a": "ABC",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M17",
+    "q": "DALL·E的架构包含哪三个重要的组件？",
+    "o": [
+      "dVAE",
+      "Transformer",
+      "CLIP",
+      "GANs"
+    ],
+    "a": "ABC",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M22",
+    "q": "生成对抗网络通常包括哪些组件？",
+    "o": [
+      "生成器 Generator",
+      "判别器 Discriminator",
+      "长时记忆",
+      "短时记忆"
+    ],
+    "a": "AB",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M26",
+    "q": "主流的生成对抗网络类型包括？",
+    "o": [
+      "深度卷积生成对抗网络 DCGAN",
+      "近似最邻域 ANN",
+      "Wasserstein GAN",
+      "循环生成对抗网络 CycleGAN"
+    ],
+    "a": "ACD",
+    "module": "images"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M19",
+    "q": "以下关于VideoGPT模型生成视频的说法，正确的有？",
+    "o": [
+      "能够根据视频数据进行生成",
+      "能够通过文本描述来生成相应的视频",
+      "VideoGPT生成视频尺寸没有限制",
+      "能够生成多种类型的视频样本",
+      "生成视频的质量非常高，没有提升空间了"
+    ],
+    "a": "ABD",
+    "module": "video"
+  },
+  {
+    "r": 2,
+    "t": "m",
+    "id": "M35",
+    "q": "使用Video Diffusion Models制作视频时，包含如下哪些步骤？",
+    "o": [
+      "安装git并下载Video Stable Diffusion代码库",
+      "下载SVD/SVD-XT模型文件",
+      "创建虚拟环境并安装依赖",
+      "运行模型并制作视频"
+    ],
+    "a": "ABCD",
+    "module": "images"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q7",
+    "q": "提示词工程主要是针对什么进行优化的技术方法？",
+    "o": [
+      "数据模型",
+      "语言模型",
+      "算法逻辑",
+      "用户界面"
+    ],
+    "a": "B",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q17",
+    "q": "提示词工程能够显著提升什么？",
+    "o": [
+      "模型的训练速度",
+      "生成文本的质量和相关性",
+      "用户的计算机技能",
+      "模型的存储效率"
+    ],
+    "a": "B",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q23",
+    "q": "在设计高质量的提示词时，哪一项是最关键的？",
+    "o": [
+      "使用复杂语言",
+      "提供具体的背景信息",
+      "提供简短的指令",
+      "使用抽象的描述"
+    ],
+    "a": "B",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q27",
+    "q": "课程中所讲解的提示词（Prompt）万能公式的要素中，不包括以下哪一项？",
+    "o": [
+      "定义角色",
+      "交代背景",
+      "提供示例",
+      "任务目标"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q54",
+    "q": "在设计提示词时，以下哪个因素最不重要？",
+    "o": [
+      "目标受众的特征",
+      "文本生成的目标",
+      "模型的训练算法",
+      "信息传递的效果"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q59",
+    "q": "在文案生成过程中，提示词设计不包括以下哪个要素？",
+    "o": [
+      "明确提问目标",
+      "提供背景信息",
+      "使用复杂的术语",
+      "设定格式和风格"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q37",
+    "q": "在提示词工程中，以下哪种方法可以提高模型的创造性？",
+    "o": [
+      "限制模型的输入数据",
+      "减少模型的训练时间",
+      "使用多样化的提示词组合",
+      "降低模型的复杂度"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q49",
+    "q": "在提示词工程中，为了引导语言模型生成与特定行业相关的文本，以下哪种策略最有效？",
+    "o": [
+      "使用行业通用的术语和概念",
+      "增加模型的训练数据量",
+      "提高模型的计算复杂度",
+      "减少模型的训练轮次"
+    ],
+    "a": "A",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q50",
+    "q": "在内容创作领域，提示词工程如何帮助生成高质量的文本？",
+    "o": [
+      "通过限制模型的创造力",
+      "通过增加模型的训练难度",
+      "通过控制生成文本的风格、内容和结构",
+      "通过减少模型的参数数量"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q51",
+    "q": "在信息检索系统中，精心设计的提示词可以帮助用户做什么？",
+    "o": [
+      "降低搜索速度",
+      "增加无关结果",
+      "更精确地表达自己的查询意图",
+      "减少搜索结果的相关性"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q14",
+    "q": "在机器翻译领域，提示词工程如何改进翻译质量？",
+    "o": [
+      "通过增加翻译模型的复杂度",
+      "通过减少源语言和目标语言的差异",
+      "通过提供适当的上下文提示词",
+      "通过提高翻译模型的训练效率"
+    ],
+    "a": "C",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q29",
+    "q": "在提示词工程中，伦理和隐私问题主要体现在哪些方面？",
+    "o": [
+      "提示词的设计可能引导模型生成不适当或有害的内容",
+      "使用提示词可能增加模型的计算复杂度",
+      "提示词的选择会影响模型的训练速度",
+      "设计提示词需要对语言学有深入的理解"
+    ],
+    "a": "A",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q1",
+    "q": "在文案生成的过程中，人类的主要职责是什么？",
+    "o": [
+      "生成初稿",
+      "内容扩展",
+      "方向设定和资料收集",
+      "增加创意性"
+    ],
+    "a": "C",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q11",
+    "q": "在选择大模型进行文案创作时，以下哪个因素对文案生成质量最重要的？",
+    "o": [
+      "语言能力",
+      "用户友好性",
+      "成本和预算",
+      "模型稳定性和更新频率"
+    ],
+    "a": "A",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q12",
+    "q": "大模型在文案写作中的哪个方面带来了显著的提升？",
+    "o": [
+      "视频生成",
+      "写作效率",
+      "图片生成",
+      "语音识别"
+    ],
+    "a": "B",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q18",
+    "q": "AIDA模型中的第一个步骤是？",
+    "o": [
+      "Interest（兴趣）",
+      "Desire（欲望）",
+      "Action（行动）",
+      "Attention（注意）"
+    ],
+    "a": "D",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q22",
+    "q": "PAS模型中的第二步是？",
+    "o": [
+      "Problem（问题）",
+      "Solution（解决方案）",
+      "Prove（证明）",
+      "Agitate（激发）"
+    ],
+    "a": "D",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q20",
+    "q": "在利用大模型进行文案生成时，如何确保文案质量？",
+    "o": [
+      "单次生成并直接使用",
+      "使用A/B测试",
+      "结合多样化风格",
+      "迭代优化"
+    ],
+    "a": "D",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q34",
+    "q": "在文案生成的步骤中，初稿生成之后的下一步是什么？",
+    "o": [
+      "编辑和优化",
+      "收集资料",
+      "立即发布",
+      "提示词设计"
+    ],
+    "a": "A",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q30",
+    "q": "在评估生成的文案质量时，哪一个因素不需要重点考虑？",
+    "o": [
+      "准确性",
+      "连贯性",
+      "创意性",
+      "生成速度"
+    ],
+    "a": "D",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "s",
+    "id": "Q46",
+    "q": "利用大模型进行文案写作的有效实用方法不包括：",
+    "o": [
+      "明确目标和受众",
+      "提供清晰的指令",
+      "多轮生成",
+      "完全信任初稿"
+    ],
+    "a": "D",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M2",
+    "q": "生成式提示词的特点包括哪些？",
+    "o": [
+      "创造性和灵活性",
+      "上下文依赖性",
+      "固定不变的输出",
+      "语言风格和一致性"
+    ],
+    "a": "ABD",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M5",
+    "q": "设计高质量提示词时应注意哪些要素？",
+    "o": [
+      "提供明确的任务目标",
+      "使用简明扼要的语言",
+      "提供足够的背景信息",
+      "指定输出格式和风格",
+      "包含复杂的技术术语"
+    ],
+    "a": "ABCD",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M7",
+    "q": "宣传文案通常具备哪些关键特点？",
+    "o": [
+      "简洁明了",
+      "详细介绍产品历史",
+      "情感共鸣",
+      "强调价值",
+      "号召行动"
+    ],
+    "a": "ACDE",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M11",
+    "q": "文案生成的优化方法包括哪些？",
+    "o": [
+      "反馈调整",
+      "多次生成",
+      "使用单一提示词",
+      "人工编辑",
+      "持续学习"
+    ],
+    "a": "ABDE",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M14",
+    "q": "关于大模型在文案写作中的革新作用，以下哪些说法是错误的？",
+    "o": [
+      "提高写作效率",
+      "增强图片生成能力",
+      "提升内容质量",
+      "个性化输出",
+      "改善语音识别效果"
+    ],
+    "a": "BE",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M15",
+    "q": "在大模型生成文案的过程中，哪种方法可以帮助提升文案的质量？",
+    "o": [
+      "反复迭代优化",
+      "使用单一提示词",
+      "结合数据分析",
+      "多轮生成内容",
+      "增加文案的长度"
+    ],
+    "a": "ACD",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M20",
+    "q": "提示词工程在哪些领域有广泛应用？",
+    "o": [
+      "信息检索",
+      "自然语言生成",
+      "文本分类",
+      "机器翻译",
+      "交互式应用"
+    ],
+    "a": "ABCDE",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M23",
+    "q": "PAS模型的结构包括哪些部分？",
+    "o": [
+      "Problem（问题）",
+      "Agitate（激发）",
+      "Solution（解决方案）",
+      "Prove（证明）",
+      "Attention（注意）"
+    ],
+    "a": "ABC",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M27",
+    "q": "在提示词工程中，哪些类型的提示词可以用于优化文本生成？",
+    "o": [
+      "上下文指导类",
+      "情感调控类",
+      "行动指导类",
+      "风格和语气指导类",
+      "时间和地点指导类"
+    ],
+    "a": "ABCDE",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M28",
+    "q": "在选择大模型时，哪些因素应该考虑？",
+    "o": [
+      "语言能力",
+      "用户评价",
+      "用户友好性",
+      "生成速度",
+      "成本和预算"
+    ],
+    "a": "ABCDE",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M32",
+    "q": "在实施提示词工程时，以下哪些做法可能有助于提升效果？",
+    "o": [
+      "深入了解目标语言模型的工作原理",
+      "不断尝试和优化提示词设计",
+      "忽略用户的反馈和需求变化",
+      "结合多种类型的提示词进行组合使用",
+      "仅使用简单的、通用的提示词"
+    ],
+    "a": "ABD",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M33",
+    "q": "人类在文案生成过程中需要负责哪些任务？",
+    "o": [
+      "方向设定和资料收集",
+      "生成初稿",
+      "质量把关",
+      "细节调整",
+      "内容扩展"
+    ],
+    "a": "ACD",
+    "module": "writing"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M36",
+    "q": "角色定位类提示词的作用有哪些？",
+    "o": [
+      "帮助模型理解用户意图",
+      "设定模型输出的长度",
+      "引导模型从特定角色视角思考问题",
+      "规定模型使用的语言风格"
+    ],
+    "a": "AC",
+    "module": "prompts"
+  },
+  {
+    "r": 3,
+    "t": "m",
+    "id": "M39",
+    "q": "关于生成式提示词，以下哪些描述是正确的？",
+    "o": [
+      "生成式提示词依赖于语言模型和条件概率",
+      "生成式提示词不考虑上下文信息",
+      "束搜索和采样策略在生成式提示词中起着重要作用",
+      "生成式提示词主要用于填充式补全任务"
+    ],
+    "a": "AC",
+    "module": "prompts"
+  },
+  {
+    "r": 4,
+    "t": "s",
+    "id": "Q35",
+    "q": "生成式人工智能带来的伦理问题可能有哪些？",
+    "o": [
+      "使用者传播虚假或不实数据",
+      "提高工作效率",
+      "降低生产成本",
+      "增加信息透明度"
+    ],
+    "a": "A",
+    "module": "ethics"
+  },
+  {
+    "r": 4,
+    "t": "s",
+    "id": "Q39",
+    "q": "生成式人工智能可能带来的危害不包括以下哪一项？",
+    "o": [
+      "影响信息可信度",
+      "增加就业机会",
+      "引发个人隐私担忧",
+      "带来伦理问题"
+    ],
+    "a": "B",
+    "module": "ethics"
+  },
+  {
+    "r": 4,
+    "t": "s",
+    "id": "Q56",
+    "q": "为了应对生成式人工智能带来的个人隐私保护担忧，需要采取什么措施？",
+    "o": [
+      "加强数据加密",
+      "制定法规和机制",
+      "减少人工智能应用",
+      "忽视服务条款中的隐私风险"
+    ],
+    "a": "B",
+    "module": "ethics"
+  },
+  {
+    "r": 4,
+    "t": "m",
+    "id": "M29",
+    "q": "生成式人工智能可能带来哪些危害？",
+    "o": [
+      "影响信息可信度",
+      "引发个人隐私担忧",
+      "带来伦理问题",
+      "缩小贫富差距"
+    ],
+    "a": "ABC",
+    "module": "ethics"
+  },
+  {
+    "r": 4,
+    "t": "m",
+    "id": "M40",
+    "q": "应对生成式人工智能个人隐私保护担忧的措施有哪些？",
+    "o": [
+      "加强数据加密",
+      "制定法规和机制",
+      "提高公众意识",
+      "限制人工智能应用"
+    ],
+    "a": "ABC",
+    "module": "ethics"
+  }
+];
+
+
+const practicalQuestions = [
+  {
+    "id": "practice-1",
+    "label": "練習1",
+    "body": "你遇到了下面這道特別棘手的數學問題，但你自己不會解。請寫一段prompt讓大模型幫你回答這道數學題。\n數學問題：小明有12支畫筆。他給了妹妹1/4。小明還剩下多少支畫筆？\n\n【要求】\n1.按照 “答案是**支”這個格式回答\n2.直接輸出答案，不用輸出任何其它內容\n3.使用清晰簡潔的語言,確保AI助手能夠理解任務需求\n4.提示詞的總長度控制在200字以內",
+    "reference": "## 任務\n回答數學問題，直接輸出結果，無需解釋說明\n## 示例\nQ: 如果你有12顆糖果，並且你給了朋友4顆糖果，你還剩下多少顆糖果？\nA: 答案是8顆\nQ: 如果一個矩形的長度為6釐米，寬度為3釐米，那麼這個矩形的周長是多少？\nA: 答案是18釐米\n## 問題\nQ: 小明有12支畫筆。他給了妹妹1/4。小明還剩下多少支畫筆？",
+    "title": "讓 AI 幫你計畫筆",
+    "tip": "像交功課畀同事：先講要解甚麼，再講答案要怎樣寫。",
+    "checks": [
+      "把完整數學題交代清楚",
+      "指定只輸出「答案是……支」",
+      "提示詞不超過 200 字"
+    ]
+  },
+  {
+    "id": "practice-2",
+    "label": "練習2",
+    "body": "C品牌智慧音箱（旗艦版）有語音助手、音樂播放、智慧家居控制、奢華精裝包裝的特點，價格1299元。目標受眾是追求生活品質的的中高端消費者。音響支援多種智慧家居設備無縫聯動，頂級音響系統，語音辨識精准，獨有兒童模式，外觀設計時尚大氣。\n請依據Prompt萬能公式的要素：定義角色、交代背景、任務目標、結構化要求，為C品牌智慧音箱寫一段在電商平臺及品牌官網上發佈的產品描述的提示詞，並利用AI工具輸出結果。\n【要求】\n為AI設定角色：如你是一位經驗豐富的行銷文案專家。\n具體要求：請包含對文案風格、輸出格式、字數等的具體描述。",
+    "reference": "提示詞：\n角色設定：你是一位經驗豐富的行銷文案專家，擅長精准捕捉產品的核心特點，並用結構化的語言傳遞高端定位與獨特賣點。\n背景資訊：\nC品牌智慧音箱（旗艦版）有語音助手、音樂播放、智慧家居控制、奢華精裝包裝的特點，價格1299元。目標受眾是追求生活品質的的中高端消費者。音響支援多種智慧家居設備無縫聯動，頂級音響系統，語音辨識精准，獨有兒童模式，外觀設計時尚大氣。\n任務目標：\n輸出文案類型：採用功能性產品描述\n適用場景：在電商平臺（如京東、天貓）及品牌官網上發佈的產品描述\n具體要求：\n風格：正式、結構化，突出高端定位與核心賣點，通過細節增強說服力\n輸出格式：標題+正文\n標題：10-15字，簡明概括產品核心特點，且有創意\n正文：200-300字\n請你根據上述要求，輸出一份適用于電商平臺的產品描述。",
+    "title": "替智慧音箱寫產品文案",
+    "tip": "把 AI 當成文案同事：說清楚角色、產品背景、任務和交稿格式。",
+    "checks": [
+      "包含角色、背景、任務與格式",
+      "交代目標客群及產品資料",
+      "寫明文風、格式和字數，再用 AI 工具生成"
+    ]
+  },
+  {
+    "id": "practice-3",
+    "label": "練習3",
+    "body": "在動畫片中，將動物擬人化是一個常見的表現手法，這種手法通過將動物賦予人類特徵、象徵意義和行為，增強了動畫片的表現力和感染力。該手法不僅豐富了故事的表達，還使得主題更具普遍性和教育意義，成為動畫片中不可或缺的重要手法，使它們能夠與觀眾產生共鳴。\n某動畫公司最近在製作關於《兔子警長》的動畫片，在動畫片中，兔子警長是一個穿著警服、充滿童真和可愛的角色。她不僅有著精緻的外表和充滿正義感的形象，還展現出聰明、勇敢和堅定的品質。\n請圍繞這個充滿童趣與正義感的兔子警長，使用文生圖模型設計一張動畫片的角色設計圖，突出其穿著警服時的專業感和可愛氣質，展現他作為動畫中受歡迎角色的魅力。\n【要求】\n1、兔子要穿著警服帶著警帽，表情嚴肅，顯示其專業性；\n2、全身照，突出其形象；\n3、場景中不要出現少兒不宜的內容；",
+    "reference": "兔子警長，表情嚴肅，穿著警服，戴著警帽，童真，可愛，全身照",
+    "title": "設計兔子警長",
+    "tip": "文生圖就像向設計師落單：人物、衣著、表情和鏡頭都要交代。",
+    "checks": [
+      "兔子穿警服、戴警帽，表情嚴肅",
+      "要求全身照，同時保留可愛氣質",
+      "畫面內容適合兒童"
+    ]
+  },
+  {
+    "id": "practice-4",
+    "label": "練習4",
+    "body": "木雕作為中國非常重要的非物質文化遺產之一，它承載著深厚的文化底蘊和歷史傳承。木雕藝術，作為中國民間傳統的手工技藝，以其獨特的雕刻技藝和豐富的藝術表現形式，在中國乃至世界文化史上都佔據著舉足輕重的地位。，\n張某某作為中國木雕非物質文化遺產的繼承人，想雕刻一個牡丹花的木雕，請使用文生圖模型生成該木雕，給張三提供靈感。\n【要求】\n1、要求主體突出，效果逼真；\n2、顯示完整的木雕圖案；\n3、生成的圖像要達到攝影級別的效果；",
+    "reference": "非遺，木雕，牡丹花，光影特效，攝影，超大廣角視覺，精緻細膩",
+    "title": "牡丹木雕靈感",
+    "tip": "先說主角是甚麼，再說材質、完整程度和你想要的畫面效果。",
+    "checks": [
+      "主體是牡丹花木雕",
+      "顯示完整圖案，效果逼真",
+      "說明需要攝影級畫面"
+    ]
+  },
+  {
+    "id": "practice-5",
+    "label": "練習5",
+    "body": "下面是一段電商客服和使用者之間的對話。請利用這段對話來檢驗評估當前大模型在使用者意圖識別和槽填充方面的能力。\n對話如下：\n用戶: 你好，我對你們網站上的一款商品很感興趣，能幫我解答一些問題嗎？\n客服: 當然可以，請問是關於哪個商品的諮詢呢？\n用戶: 是關於商品ID為123456的那款手機。\n客服: 好的，123456這款手機是我們最新推出的型號，您具體想瞭解哪方面的資訊呢？\n用戶: 我已經下單了，但想確認一下訂單狀態，能幫我查一下嗎？\n客服: 沒問題，請告訴我您的訂單號。\n用戶: 我的訂單號是789012。\n客服: 訂單789012已經成功支付，預計明天到達，請您耐心等待。\n用戶: 好的，謝謝。另外，我收到的上一個訂單中的衣服有些問題，想申請退換貨。\n客服: 抱歉給您帶來不便，請告訴我那個訂單的訂單號以及具體的問題描述。\n用戶: 訂單號是345678，衣服的顏色和網站上描述的不一致。\n客服: 明白了，關於訂單345678的退換貨申請，我們會儘快處理。請您保持聯繫，我們會有人聯繫您具體的退換貨流程。\n用戶: 好的，謝謝你們的幫助。\n客服: 不客氣，祝您購物愉快！\n【要求】\n設計Prompt，讓大模型可以提取對話中的使用者意圖分類、槽位元資訊以及對應的槽位元資料。",
+    "reference": "請仔細閱讀以下對話，並提取出使用者意圖分類、槽位元資訊以及對應的槽位元資料。\n對話內容：\n用戶: 你好，我對你們網站上的一款商品很感興趣，能幫我解答一些問題嗎？\n客服: 當然可以，請問是關於哪個商品的諮詢呢？\n用戶: 是關於商品ID為123456的那款手機。\n客服: 好的，123456這款手機是我們最新推出的型號，您具體想瞭解哪方面的資訊呢？\n用戶: 我已經下單了，但想確認一下訂單狀態，能幫我查一下嗎？\n客服: 沒問題，請告訴我您的訂單號。\n用戶: 我的訂單號是789012。\n客服: 訂單789012已經成功支付，預計明天到達，請您耐心等待。\n用戶: 好的，謝謝。另外，我收到的上一個訂單中的衣服有些問題，想申請退換貨。\n客服: 抱歉給您帶來不便，請告訴我那個訂單的訂單號以及具體的問題描述。\n用戶: 訂單號是345678，衣服的顏色和網站上描述的不一致。\n客服: 明白了，關於訂單345678的退換貨申請，我們會儘快處理。請您保持聯繫，我們會有人聯繫您具體的退換貨流程。\n用戶: 好的，謝謝你們的幫助。\n客服: 不客氣，祝您購物愉快！\n提取結果請按照以下格式輸出：\n1. 用戶意圖分類：[意圖1, 意圖2, 意圖3]\n2. 槽位元資訊以及對應的槽位元資料：\n   - 商品諮詢：[商品ID]\n   - 訂單查詢：[訂單號]\n   - 退換貨申請：[訂單號, 問題描述]",
+    "title": "整理客服對話",
+    "tip": "「意圖」是客人想做甚麼；「槽位」就是訂單號、商品編號等關鍵資料。",
+    "checks": [
+      "找出商品諮詢、訂單查詢和退換貨意圖",
+      "逐項提取對應編號和問題描述",
+      "只根據對話整理，沒有的資料不要亂填"
+    ]
+  },
+  {
+    "id": "practice-6",
+    "label": "練習6",
+    "body": "請根據以下的創作主題和要求，撰寫提示詞，使用大模型創作一首詩歌，並按照要求對生成的詩歌進行評估和優化。\n“請創作一首描繪自然之美的現代詩歌，詩中應包含對山川、河流、樹木、花朵等自然元素的細膩描繪，以及這些元素如何觸動人心、引發思考的意境。”。”\n【要求】\n1、檢查詩歌是否緊密圍繞“自然之美”這一主題展開\n2、評估詩歌中是否有效融入了山川、河流、樹木、花朵等自然元素\n3、分析詩歌的語言是否優美，是否使用了恰當的修辭手法（如比喻、擬人、排比等）來增強表達效果\n4、檢查詩歌的段落和句子之間是否邏輯清晰，過渡自然\n5、評估詩歌是否營造出了一種寧靜、和諧或引人深思的自然氛圍",
+    "reference": "任務：你是一為現代詩人，請創作一首現代詩歌。\n主題：詩歌的主題為'自然之美'。\n要求：\n詩歌需細膩描繪山川的壯麗、河流的溫婉、樹木的堅韌與花朵的絢爛，通過這些自然元素展現大自然的鬼斧神工與生命的勃勃生機。\n同時，請融入詩人對自然的敬畏之情，以及對自然美景下心靈得到寧靜與啟迪的感悟。\n使用豐富的意象和修辭手法，讓詩歌既有視覺上的美感，又有情感上的豐富共鳴。",
+    "title": "寫詩並檢查修改",
+    "tip": "先叫 AI 起草，再照題目的清單逐項檢查，最後請它修改。",
+    "checks": [
+      "主題是自然之美，包含山川、河流、樹木和花朵",
+      "檢查修辭、條理與過渡是否自然",
+      "評估氛圍，根據檢查結果優化詩歌"
+    ]
+  },
+  {
+    "id": "internship-1",
+    "label": "實習1",
+    "body": "獨角獸是一種充滿神秘的生物，它們通常被描繪為擁有潔白或彩虹般色彩的毛髮，額頭上長有一隻尖銳而閃耀的角。獨角獸不僅外形美麗，而且性格溫順，擁有治癒的力量，常常在故事中扮演著守護者和引導者的角色。\n請以獨角獸為主題設計並生成一個時長為30秒的視頻短片。為了完成上述短片，我們需要生成相應的場景，請使用文生圖模型生成相應的場景圖片。\n【要求】\n角色設計：視頻中的獨角獸應展現出童話般的可愛形象，設計需符合童話風格的視覺美感，獨角獸應在七彩祥雲中。\n場景設計：七彩祥雲應充滿夢幻色彩，營造出溫馨的氛圍。\n動畫效果：獨角獸在視頻中可以有簡單的動作或飛行表現，七彩祥雲應有動態變化，強調出童話故事般的奇幻效果。\n為了完成上述短片，我們需要生成相應的場景，請使用文生圖模型生成相應的場景圖片。",
+    "reference": "一隻獨角獸，七彩祥雲，可愛，童話風",
+    "title": "獨角獸場景圖",
+    "tip": "題目以 30 秒短片為背景，先用文生圖做出童話場景；影片動作需另用合適工具處理。",
+    "checks": [
+      "可愛的童話風獨角獸在七彩祥雲中",
+      "場景夢幻、溫馨",
+      "為後續動作或飛行表現構思畫面"
+    ]
+  },
+  {
+    "id": "internship-2",
+    "label": "實習2",
+    "body": "你遇到了下面這道特別棘手的數學問題，但你自己不會解。請寫一段prompt讓大模型幫你回答這道數學題\n數學問題：小明有12支畫筆。他給了妹妹1/4。小明還剩下多少支畫筆？\n 【要求】\n1.按照 “答案是**支”這個格式回答\n2.直接輸出答案，不用輸出任何其它內容\n3.使用清晰簡潔的語言,確保AI助手能夠理解任務需求\n4.提示詞的總長度控制在200字以內",
+    "reference": "## 任務 回答數學問題，直接輸出結果，無需解釋說明 ## 示例 Q: 如果你有12顆糖果，並且你給了朋友4顆糖果，你還剩下多少顆糖果？ A: 答案是8顆 Q: 如果一個矩形的長度為6釐米，寬度為3釐米，那麼這個矩形的周長是多少？ A: 答案是18釐米 ## 問題 Q: 小明有12支畫筆。他給了妹妹1/4。小明還剩下多少支畫筆？",
+    "title": "再練一次畫筆題",
+    "tip": "這題與練習 1 相同，文件另列為實習題，可再試一次寫得更清楚。",
+    "checks": [
+      "完整交代畫筆數量及送出的比例",
+      "只輸出指定答案格式",
+      "提示詞不超過 200 字"
+    ]
+  },
+  {
+    "id": "internship-3",
+    "label": "實習3",
+    "body": "請依據Prompt萬能公式的要素：定義角色、交代背景、任務目標、結構化要求，為以下場景寫一段提示詞，並利用AI工具輸出結果。\n場景：在今年的618期間，某公司，銷售額比去年同期增長了35%，表現超越了預期，創造了新的歷史記錄。人力資源部準備向內部員工發送一份內部簡報通報此事。\n【要求】\n提示詞包含以下內容：\n1.為AI設定角色，如你是人力資源部的主管，負責公司內部相關文案的書寫。\n2.交代背景（參考題幹中的背景）\n3.要求細節：\n（1）包含四個方面的內容：彙報成果、肯定工作、榜樣力量、激勵人心。\n（2）言簡意賅，300-500字，突出重要資訊，並帶有激動的情緒色彩\n（3）落款為公司",
+    "reference": "你是人力資源部的主管，負責公司內部相關文案的書寫。在今年的618期間，我的公司××電子商務公司，銷售額比去年同期增長了35%，表現超越了預期，創造了新的歷史記錄。 現在需要你向公司內部員工發送一份簡報通報此事。 要求： 1.文章的內容包含四個方面的內容：彙報成果、肯定工作、榜樣力量、激勵人心（對全體員工產生正向激勵，希望能持續激發高品質的活力，創造下一個佳績） 2.以公司的口吻，而不是個人口吻，落款為公司 3.言簡意賅300-500字，層次分明，突出重要資訊，並帶有激動的情緒色彩",
+    "title": "撰寫公司內部簡報",
+    "tip": "把對象、業績、四個重點和公司口吻交代清楚，像向同事派寫稿任務。",
+    "checks": [
+      "寫明 618 銷售額比去年同期增長 35%",
+      "包含成果、肯定、榜樣、鼓勵四方面",
+      "300–500 字，以公司口吻及公司落款"
+    ]
+  },
+  {
+    "id": "internship-4",
+    "label": "實習4",
+    "body": "在動畫片中，將動物擬人化是一個常見的表現手法，這種手法通過將動物賦予人類特徵、象徵意義和行為，增強了動畫片的表現力和感染力。該手法不僅豐富了故事的表達，還使得主題更具普遍性和教育意義，成為動畫片中不可或缺的重要手法，使它們能夠與觀眾產生共鳴。\n某動畫公司最近在製作關於《兔子警長》的動畫片，在動畫片中，兔子警長是一個穿著警服、充滿童真和可愛的角色。她不僅有著精緻的外表和充滿正義感的形象，還展現出聰明、勇敢和堅定的品質。\n請圍繞這個充滿童趣與正義感的兔子警長，使用文生圖模型設計一張動畫片的角色設計圖，突出其穿著警服時的專業感和可愛氣質，展現他作為動畫中受歡迎角色的魅力。\n【要求】\n1、兔子要穿著警服帶著警帽，表情嚴肅，顯示其專業性；\n2、全身照，突出其形象；\n3、場景中不要出現少兒不宜的內容；",
+    "reference": "兔子警長，表情嚴肅，穿著警服，戴著警帽，童真，可愛，全身照",
+    "title": "再練兔子警長設計",
+    "tip": "這題與練習 3 相同，文件另列為實習題，重點仍是人物與畫面要求。",
+    "checks": [
+      "穿警服、戴警帽、表情嚴肅",
+      "全身照，同時展現可愛氣質",
+      "內容適合兒童"
+    ]
+  },
+  {
+    "id": "internship-5",
+    "label": "實習5",
+    "body": "你是一家科技公司的AI研發工程師，負責開發和優化一個基於大型語言模型的閒聊對話系統。公司計畫將這個系統應用于一個面向年輕人的虛擬夥伴應用。你的任務是設計並執行一個實驗，以評估和改進系統的表現。\n【要求】\n設計一個閒聊對話實驗，提示詞包括以下元素：\n1) 為AI設定一個適合年輕人的虛擬夥伴角色\n2) 制定對話規則和主題範圍\n3) 設置至少一個挑戰性元素，以測試系統的應變能力\n4) 規劃一個3輪的對話流程",
+    "reference": "實驗設計：年輕人虛擬夥伴\"ZenBuddy\"對話測試 1.角色設定： ZenBuddy是23歲的虛擬夥伴，性格開朗幽默，熱愛流行文化和科技。語言風格輕鬆自然，偶爾使用網路用語。 2.話規則和主題範圍： 主題：日常生活、學習、職業、娛樂、社交 風格：友好、簡潔，適度使用表情 禁止：違法、成人內容、極端政治話題 3.挑戰性元素： 在第二輪引入道德困境，測試AI處理複雜情況的能力。 4. 3輪對話流程： 第1輪：輕鬆話題 人類：最近有什麼好玩的app推薦嗎？ ZenBuddy：當然！ 我推薦\"Slowly\"，它讓你和世界各地的人exchange類似明信片的資訊。如果想學新技能，\"Duolingo\"很棒哦！你喜歡哪種類型的app？ 第2輪：道德困境（挑戰元素） 人類：我發現朋友考試作弊，該不該舉報？ ZenBuddy：這確實很糾結！ 誠實很重要，但友誼也珍貴。也許可以先和朋友私下談談？瞭解原因，看能否幫他用正當方式提高成績。記住，選擇一個你認為正確且問心無愧的做法。你覺得呢？ 第3輪：回到輕鬆話題 人類：說點輕鬆的，最近看了什麼有趣的電影或劇集？ ZenBuddy：最近《瑞克和莫蒂》新季很火，又好笑又腦洞大開！如果喜歡暖心一點的，《泰德拉索》也不錯哦。你最近在追什麼劇呢？我們可以交流觀後感！",
+    "title": "設計虛擬夥伴對話測試",
+    "tip": "把測試想成一次三回合演練：角色是誰、可以聊甚麼、遇到難題怎樣應對。",
+    "checks": [
+      "設定適合年輕人的角色",
+      "寫清對話規則和主題範圍",
+      "加入至少一個挑戰，安排三輪對話"
+    ]
+  }
+];
+
+function gradeAnswer(answer, selected) {
+  if (!Array.isArray(selected) || !selected.length) return false;
+  const expected = [...new Set(String(answer).toUpperCase().split(''))].sort();
+  const actual = [...new Set(selected.map(x => String(x).toUpperCase()))].sort();
+  return expected.length === actual.length && expected.every((v, i) => v === actual[i]);
+}
+function filterQuestions(questions, moduleId = 'all', search = '') {
+  const needle = search.trim().toLocaleLowerCase();
+  return questions.filter(q => (moduleId === 'all' || q.module === moduleId) && (!needle || [q.id,q.q,q.searchText,...(q.o || [])].join(' ').toLocaleLowerCase().includes(needle)));
+}
+function getProgress(questions, history) {
+  const entries = questions.map(q => history?.[q.id]).filter(Boolean);
+  return {answered: entries.length, correct: entries.filter(x => x.correct).length, total: questions.length};
+}
+
+
+
+for (const q of questions) q.searchText = `${modules.find(m => m.id === q.module)?.short || ''} ${explanations[q.id] || ''}`;
+const root = document.querySelector('#app');
+const storageKey = 'ai-slow-learning-v1';
+const readHistory = () => { try { const x = JSON.parse(localStorage.getItem(storageKey) || '{}'); return x && typeof x === 'object' && !Array.isArray(x) ? x : {}; } catch { return {}; } };
+let history = readHistory();
+let state = {view:'home', module:'basics', filter:'all', search:'', wrongOnly:false, wrongIds:new Set(), index:0, practicalIndex:0, selected:[], submitted:false, notice:''};
+const practicalKey='ai-slow-learning-practical-v1';
+const readPractical=()=>{try{const x=JSON.parse(localStorage.getItem(practicalKey)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}catch{return {};}};
+let practicalResponses=readPractical();
+function persistPractical(){try{localStorage.setItem(practicalKey,JSON.stringify(practicalResponses));}catch{/* Keep drafts in memory if storage is unavailable. */}}
+function practicalCount(){return practicalQuestions.filter(q=>typeof practicalResponses[q.id]?.prompt==='string'&&practicalResponses[q.id].prompt.trim()).length;}
+const promptSegmenter=(()=>{try{return typeof Intl!=='undefined'&&typeof Intl.Segmenter==='function'?new Intl.Segmenter(undefined,{granularity:'grapheme'}):null;}catch{return null;}})();
+function promptCharacterCount(value){const text=String(value??'');return promptSegmenter?Array.from(promptSegmenter.segment(text)).length:Array.from(text).length;}
+function promptCountLabel(q,value){const limit=q.id==='practice-1'||q.id==='internship-2'?200:null;return `字數：${promptCharacterCount(value)}${limit?` / ${limit}`:''}`;}
+// A separate cumulative timer for the active lesson's practice.
+const lessonTimerKey='ai-slow-learning-lesson-times-v1';
+const readLessonTimes=()=>{try{const x=JSON.parse(localStorage.getItem(lessonTimerKey)||'{}');return x && typeof x==='object' && !Array.isArray(x)?x:{};}catch{return {};}};
+const lessonTimes=readLessonTimes();
+let timer={id:null,elapsedMs:0,startedAt:null,manuallyPaused:false};
+function elapsedTime(){return timer.elapsedMs+(timer.startedAt===null?0:Math.max(0,Date.now()-timer.startedAt));}
+function formatTime(milliseconds){
+ const seconds=Math.floor(milliseconds/1000), hours=Math.floor(seconds/3600), minutes=Math.floor((seconds%3600)/60), remainder=seconds%60;
+ return hours?`${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`:`${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`;
+}
+function timerStatus(){return timer.startedAt===null?'已暫停':'計時中';}
+function refreshTimer(){
+ const time=document.querySelector('#lesson-timer'),status=document.querySelector('#timer-status'),toggle=document.querySelector('#timer-toggle');
+ if(time)time.textContent=formatTime(elapsedTime());
+ if(status)status.textContent=timerStatus();
+ if(toggle)toggle.textContent=timer.manuallyPaused?'繼續':'暫停';
+}
+function saveTimer(){
+ if(!timer.id)return;
+ lessonTimes[timer.id]={elapsedMs:elapsedTime(),manuallyPaused:timer.manuallyPaused};
+ try{localStorage.setItem(lessonTimerKey,JSON.stringify(lessonTimes));}catch{/* Timer still works for the current session. */}
+}
+function pauseTimer(){
+ if(timer.startedAt!==null)timer.elapsedMs=elapsedTime();
+ timer.startedAt=null;saveTimer();refreshTimer();
+}
+function resumeTimer(){
+ if(timer.id&&!timer.manuallyPaused&&timer.startedAt===null&&!document.hidden&&(state.view==='quiz'||state.view==='practical'))timer.startedAt=Date.now();
+ refreshTimer();
+}
+function selectLessonTimer(id){
+ if(timer.id!==id){
+   pauseTimer();
+   const saved=id?lessonTimes[id]:null;
+   const elapsed=typeof saved?.elapsedMs==='number'&&Number.isFinite(saved.elapsedMs)&&saved.elapsedMs>=0?saved.elapsedMs:0;
+   timer={id,elapsedMs:elapsed,startedAt:null,manuallyPaused:saved?.manuallyPaused===true};
+ }
+ resumeTimer();
+}
+let lastTimerSave=0;
+setInterval(()=>{refreshTimer();if(timer.startedAt!==null&&Date.now()-lastTimerSave>=5000){saveTimer();lastTimerSave=Date.now();}},1000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseTimer();else resumeTimer();});
+window.addEventListener('pagehide',pauseTimer);
+window.addEventListener('pageshow',resumeTimer);
+const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const e = escapeHTML;
+const currentModule = () => modules.find(m => m.id === state.module) || modules[0];
+const filtered = () => {
+  const list = filterQuestions(questions, state.filter, state.search);
+  return state.wrongOnly ? list.filter(q => state.wrongIds.has(q.id)) : list;
+};
+const currentQuestion = () => filtered()[Math.min(state.index, Math.max(filtered().length - 1, 0))];
+const loadQuestionState = () => {
+  const q = currentQuestion();
+  if (!q) { state.selected=[];state.submitted=false;selectLessonTimer(null);return; }
+  const previous=history[q.id];
+  state.selected=Array.isArray(previous?.selected)?[...previous.selected]:[];
+  state.submitted=Boolean(previous && Array.isArray(previous.selected));
+  selectLessonTimer(q.module);
+};
+const persistHistory = () => { try { localStorage.setItem(storageKey, JSON.stringify(history)); } catch { /* The exercises remain usable in this session. */ } };
+const countFor = id => questions.filter(q => q.module === id).length;
+const currentLabel = () => state.view==='home' ? '學習首頁' : state.view==='lesson' ? currentModule().short : state.view==='practical' ? '實操題' : '題目練習';
+const navButton = (action,label,icon,active,extra='') => `<button class="nav-item ${active?'active':''}" data-action="${action}" ${extra}><span class="nav-icon" aria-hidden="true">${icon}</span><span>${e(label)}</span></button>`;
+function sidebar(){
+ const p=getProgress(questions,history);
+ return `<aside class="sidebar" aria-label="學習導覽">
+   <a class="brand" href="#home" data-action="home"><span class="brand-mark" aria-hidden="true">✳</span><span><strong>AI 慢慢學</strong><small>給打工人的 AI 筆記</small></span></a>
+   ${navButton('home','學習首頁','⌂',state.view==='home')}
+   ${navButton('practice','題目練習','▤',state.view==='quiz','data-filter="all"')}
+   ${navButton('practical','實操題','✎',state.view==='practical')}
+   <div class="nav-caption">你的學習路線</div>
+   ${modules.map(m=>`<button class="nav-item ${state.view==='lesson'&&state.module===m.id?'active':''}" data-action="lesson" data-module="${m.id}"><span class="nav-num">${m.number}</span><span>${e(m.short)}</span></button>`).join('')}
+   <div class="side-bottom"><b>學習進度</b><br>已練習 ${p.answered} / ${p.total} 題<br>記錄儲存在這部裝置</div>
+ </aside>`;
+}
+function mobileNav(){return `<nav class="mobile-nav" aria-label="主要導覽">
+ <button data-action="home" class="${state.view==='home'?'active':''}"><span aria-hidden="true">⌂</span>首頁</button>
+ <button data-action="lesson" data-module="${state.module}" class="${state.view==='lesson'?'active':''}"><span aria-hidden="true">☷</span>學習</button>
+ <button data-action="practice" data-filter="all" class="${state.view==='quiz'?'active':''}"><span aria-hidden="true">▤</span>選擇題</button>
+ <button data-action="practical" class="${state.view==='practical'?'active':''}"><span aria-hidden="true">✎</span>實操題</button>
+ </nav>`;}
+const footer=()=>`<footer class="page-footer"><div>延伸閱讀：<a href="https://arxiv.org/abs/2104.10157" target="_blank" rel="noopener noreferrer">VideoGPT 論文</a> · <a href="https://openai.com/research/dall-e/" target="_blank" rel="noopener noreferrer">第一代 DALL·E</a> · <a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener noreferrer">擴散模型論文</a></div></footer>`;
+function home(){
+ const p=getProgress(questions,history);
+ return `<div class="intro-grid">
+  <section class="hero" aria-labelledby="hero-title"><div><div class="tag">給忙碌的你，一份 AI 學習筆記</div><h1 id="hero-title">唔使識編程，<br><span>都可以搞懂 AI。</span></h1><p>由熟悉的工作情境開始，用聽得明的說話拆解 AIGC 選擇題。先理解，再練習，慢慢來都可以。</p></div><div class="actions"><button class="btn btn-light" data-action="lesson" data-module="basics">由第一課開始 <span aria-hidden="true">↗</span></button><button class="btn btn-outline" data-action="practice" data-filter="all">直接做題目 <span aria-hidden="true">→</span></button></div></section>
+  <aside class="note-card"><div><div class="note-top"><span class="note-label">今日小筆記</span><span class="note-symbol" aria-hidden="true">✳</span></div><h2>AI 像一位<br>需要你帶領的助手。</h2><p>你交代方向，它幫忙起稿；最後查證、修改和決定能否交出，仍然是你的工作。</p></div><div class="mini-note"><strong>先學概念，再拆題目</strong>${modules.length} 個小主題 · 100 道選擇題 · 11 道實操題<br>你已練習 ${p.answered} 題</div></aside>
+ </div>
+ <div class="section-heading"><div><div class="eyebrow">學習路線</div><h2>由邊度開始？</h2><p>每一課都是一個工作場景，揀你想了解的就可以。</p></div><p>共 ${String(modules.length).padStart(2,'0')} 課</p></div>
+ <div class="lesson-list">${modules.map(m=>`<button class="lesson-row" data-action="lesson" data-module="${m.id}"><span class="lesson-icon" aria-hidden="true">${e(m.icon)}</span><span class="lesson-row-main"><small>第 ${m.number} 課 · ${e(m.time)}</small><strong>${e(m.short)}</strong><span>${e(m.summary)}</span></span><span class="row-arrow" aria-hidden="true">↗</span></button>`).join('')}</div>
+ <div class="section-heading"><div><div class="eyebrow">自己動手做</div><h2>實操題練習</h2><p>寫提示詞、構思圖片，試試把所學用在工作場景。</p></div></div><button class="lesson-row practical-entry" data-action="practical"><span class="lesson-icon" aria-hidden="true">✎</span><span class="lesson-row-main"><small>6 道練習 · 5 道實習</small><strong>開始做實操題</strong><span>看原題、寫草稿，再對照參考答案。</span></span><span class="row-arrow" aria-hidden="true">↗</span></button>
+ ${footer()}`;
+}
+function formulaLessonContent(){
+ const demo=`題目：公司系統星期五下午 3 至 4 點維護，請同事提前儲存工作。
+
+## 角色設定
+你是公司行政助理。
+## 任務
+根據提供的資料，撰寫內部系統維護通知。
+## 要求
+80 字內，語氣友善，提醒同事提前儲存工作；不要自行加入未提供的細節。
+## 回答格式
+一段可以直接發到工作群組的通知。`;
+ return `<section class="formula-panel"><div class="eyebrow">複製後開始</div><h2>完整超能公式</h2><p>複製整段公式，把實操題貼在「題目如下：」後面，再交給 AI 協助優化。唔需要全部用，選合適的就可以。</p><label for="superformula-template">可複製的公式</label><textarea id="superformula-template" rows="15" readonly spellcheck="false">${e(superFormula)}</textarea><div class="formula-actions"><button class="btn" data-action="copy-superformula">複製公式</button><span id="copy-status" role="status" aria-live="polite"></span></div></section>
+ <section class="formula-fields"><div class="eyebrow">十個欄位，按需要選</div><h2>每一項是甚麼意思？</h2><p>相似的欄位可以合併，沒有相關資料的欄位可以省略。</p><div class="formula-field-grid">${formulaFields.map(([name,description])=>`<div class="formula-field"><strong>${e(name)}</strong><span>${e(description)}</span></div>`).join('')}</div></section>
+ <section class="formula-example"><div class="eyebrow">工作例子</div><h2>只選合適的欄位</h2><p>以下是示範；這道題不需要示例或檢索結果，所以不用硬加。</p><div class="source-text">${e(demo)}</div></section>`;
+}
+async function copySuperFormula(){
+ const input=document.querySelector('#superformula-template'),status=document.querySelector('#copy-status');
+ try{
+   if(typeof navigator!=='undefined' && navigator.clipboard?.writeText)await navigator.clipboard.writeText(superFormula);
+   else if(input){input.focus();input.select();if(!document.execCommand('copy'))throw new Error('copy unavailable');}
+   else throw new Error('copy unavailable');
+   if(status)status.textContent='已複製，貼上題目就可以使用。';
+ }catch{
+   if(input){input.focus();input.select();}
+   if(status)status.textContent='未能自動複製，請選取上方公式後自行複製。';
+ }
+}
+function lesson(){
+ const m=currentModule(), n=countFor(m.id), num=modules.findIndex(x=>x.id===m.id);
+ return `<button class="back-link" data-action="home">← 返回學習首頁</button>
+ <header class="lesson-head"><div class="eyebrow">第 ${m.number} 課 / 共 ${String(modules.length).padStart(2,'0')} 課　·　${e(m.time)}</div><h1>${e(m.title)}</h1><p>${e(m.summary)}</p></header>
+ <div class="lesson-layout"><div>
+   <section class="scenario"><div class="eyebrow">先想像這個場景</div><h2>${e(m.scenarioTitle)}</h2><p>${e(m.scenario)}</p></section>
+   <div class="eyebrow">核心概念</div><h2 class="article-title">${e(m.eyebrow)}</h2>
+   <div class="concept-grid">${m.cards.map(c=>`<article class="concept"><div class="eyebrow">${e(c.tag)}</div><h3>${e(c.title)}</h3><p>${e(c.text)}</p></article>`).join('')}</div>
+   <section class="compare"><h3>${e(m.compareTitle)}</h3><div class="compare-grid"><div class="compare-item"><strong>${e(m.leftLabel)}</strong>${e(m.left)}</div><div class="compare-item"><strong>${e(m.rightLabel)}</strong>${e(m.right)}</div></div></section>
+   ${m.formula?formulaLessonContent():''}
+   <div class="actions"><button class="btn btn-white" data-action="home">← 全部課題</button>${num<modules.length-1?`<button class="btn btn-white" data-action="lesson" data-module="${modules[num+1].id}">下一課：${e(modules[num+1].short)} →</button>`:''}</div>
+ </div><aside class="lesson-side"><div class="side-card"><div class="eyebrow">學完之後</div><h3>理解了？試試做題。</h3>${m.practiceTarget==='practical'?`<p>揀一道實操題，把題目貼到公式後面，試試請 AI 優化提示詞。</p><button class="btn" data-action="practical">練習實操題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-practical">重置實操題及計時</button>`:`<p>原題保留考試用語，提交後會看到答案和白話解析。</p><button class="btn" data-action="practice" data-filter="${m.id}">練習這課 ${n} 題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${m.id}">重置本課題目及計時</button>`}${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}</div><div class="side-card tip-card"><div class="eyebrow">記住這一句</div><p>${e(m.takeaway)}</p></div></aside></div>${footer()}`;
+}
+function quiz(){
+ const list=filtered(); if(state.index>=list.length)state.index=Math.max(0,list.length-1);
+ const q=list[state.index], p=getProgress(questions,history);
+ const opts=modules.filter(m=>countFor(m.id)>0).map(m=>`<option value="${m.id}" ${state.filter===m.id?'selected':''}>${m.number} ${e(m.short)}（${countFor(m.id)} 題）</option>`).join('');
+ const qHtml=q ? `<div class="quiz-meta"><span class="badge">${q.t==='s'?'單選題':'多選題'} · ${e(modules.find(m=>m.id===q.module)?.short)}</span><div class="quiz-meta-right"><div class="lesson-timer" aria-label="本課練習用時" aria-live="off"><span aria-hidden="true">◷</span><span>本課用時</span><strong id="lesson-timer">${formatTime(elapsedTime())}</strong><span id="timer-status" class="timer-status">${timerStatus()}</span><button id="timer-toggle" class="timer-control" data-action="timer-toggle">${timer.manuallyPaused?'繼續':'暫停'}</button><button class="timer-control" data-action="timer-reset" aria-label="重設本課計時">重設</button></div><span class="question-counter">${state.index+1} / ${list.length}</span></div></div>
+  <h2 class="question-title">${e(q.q)}</h2><p class="question-hint">${q.t==='s'?'揀一個最合適的答案':'可能有多個答案，逐個選項判斷。'} · 題目保留原文</p>
+  <div class="options" role="group" aria-label="答案選項">${q.o.map((option,i)=>{
+    const letter=String.fromCharCode(65+i), selected=state.selected.includes(letter), right=q.a.includes(letter);
+    const klass=state.submitted ? right?'correct':selected?'wrong':'' : selected?'selected':'';
+    return `<label class="option ${klass}"><input type="${q.t==='s'?'radio':'checkbox'}" name="answer" value="${letter}" ${selected?'checked':''} ${state.submitted?'disabled':''}><span class="option-letter">${letter}</span><span class="option-text">${e(option)}</span></label>`;
+  }).join('')}</div>
+  ${state.submitted?`<div class="feedback ${gradeAnswer(q.a,state.selected)?'':'incorrect'}" role="status"><strong>${gradeAnswer(q.a,state.selected)?'答對了，繼續保持。':'再睇一次，重點在這裏。'}</strong><p class="correct-answer">題庫參考答案：${e(q.a.split('').join('、'))}</p><p>${e(explanations[q.id])}</p><p class="feedback-note">解釋幫你理解題意；遇到特定版本或規定，記得核對實際情況。</p></div>`:''}
+  <div class="quiz-actions">${!state.submitted?`<button class="btn" data-action="submit" ${state.selected.length?'':'disabled'}>提交答案 →</button>`:`<button class="btn btn-white" data-action="retry">再試一次</button>`}<button class="btn btn-white" data-action="prev" ${state.index===0?'disabled':''}>← 上一題</button><button class="btn btn-white" data-action="next" ${state.index>=list.length-1?'disabled':''}>下一題 →</button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${q.module}">重置本課題目及計時</button></div>`
+  : `<div class="empty"><h2>暫時沒有符合的題目</h2><p>${state.wrongOnly?'目前沒有符合篩選條件的錯題。可取消「只看錯題」再繼續練習。':'試試選擇其他主題，或清除搜尋文字。'}</p></div>`;
+ return `<header class="quiz-head"><div><div class="eyebrow">跟住自己的節奏來</div><h1>題目練習</h1><p>一題一題來。選好後，看答案背後的意思。</p></div><div class="quiz-head-actions"><button class="btn btn-white mobile-filter-btn" data-action="show-filters">篩選題目 ↓</button><button class="btn btn-white" data-action="home">← 學習首頁</button></div></header>
+  ${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}<div class="quiz-layout"><section class="quiz-panel" aria-live="polite">${qHtml}</section><aside class="filter-card"><h2>選擇練習範圍</h2><div><label for="topic-filter">主題</label><select id="topic-filter"><option value="all" ${state.filter==='all'?'selected':''}>全部題目（100 題）</option>${opts}</select></div><div><label for="search">搜尋題目、解析或題號</label><input id="search" type="search" placeholder="例如 Q33、提示詞" value="${e(state.search)}"></div><label class="check-line"><input id="wrong-only" type="checkbox" ${state.wrongOnly?'checked':''}> 只看曾答錯的題目</label><div class="filter-help">已練習 ${p.answered} / ${p.total} 題<br>記錄只保存在這部裝置；清除瀏覽資料後會消失。<br><br>原題答案依提供的教材；個別舊題有版本或措辭限制。</div><button class="btn btn-white mobile-filter-btn" data-action="show-question">回到題目 ↑</button>${!q&&state.filter!=='all'?`<button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${state.filter}">重置本課題目及計時</button>`:''}</aside></div>${footer()}`;
+}
+function practicalCopyText(q){return `${superFormula}\n${q.label}\n${q.body}`;}
+async function copyPractical(){
+ const q=practicalQuestions[state.practicalIndex];if(!q)return;
+ const text=practicalCopyText(q),status=document.querySelector('#practical-copy-status'),manual=document.querySelector('#practical-copy-manual'),input=document.querySelector('#practical-copy-text');
+ let copied=false;
+ if(typeof navigator!=='undefined' && navigator.clipboard?.writeText){
+   try{await navigator.clipboard.writeText(text);copied=true;}catch{/* Try the local-file fallback. */}
+ }
+ if(!copied && input && manual){
+   manual.hidden=false;input.value=text;
+   try{input.focus();input.select();input.setSelectionRange(0,input.value.length);copied=typeof document.execCommand==='function'&&document.execCommand('copy');}catch{/* Leave the text available for manual copying. */}
+ }
+ if(copied){
+   if(manual){const wasVisible=!manual.hidden;manual.hidden=true;if(wasVisible)document.querySelector('[data-action="copy-practical"]')?.focus({preventScroll:true});}
+   if(status)status.textContent='已複製公式和題目，可以貼到 AI 工具。';
+ }else{
+   if(manual)manual.hidden=false;
+   if(input){input.value=text;try{input.focus();input.select();}catch{/* Text remains visible for manual selection. */}}
+   if(status)status.textContent='未能自動複製，請選取下方文字後自行複製。';
+ }
+}
+function practical(){
+ const q=practicalQuestions[state.practicalIndex], response=practicalResponses[q.id]||{};
+ const options=practicalQuestions.map((item,i)=>`<option value="${i}" ${i===state.practicalIndex?'selected':''}>${e(item.label)} · ${e(item.title)}</option>`).join('');
+ const progress=practicalCount();
+ return `<header class="practical-head"><div class="eyebrow">自己動手做</div><h1>實操題：親手寫提示詞</h1><p>先看題目，自己寫一份提示詞，再展開參考答案對照。題目按原文件保留，包括重複的練習和實習。</p></header>
+ ${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}
+ <section class="quiz-panel practical-panel"><div class="quiz-meta"><div class="quiz-meta-right"><div class="lesson-timer" aria-label="實操題練習用時" aria-live="off"><span aria-hidden="true">◷</span><span>實操用時</span><strong id="lesson-timer">${formatTime(elapsedTime())}</strong><span id="timer-status" class="timer-status">${timerStatus()}</span><button id="timer-toggle" class="timer-control" data-action="timer-toggle">${timer.manuallyPaused?'繼續':'暫停'}</button><button class="timer-control" data-action="timer-reset" aria-label="重設實操題計時">重設</button></div><span class="question-counter">${state.practicalIndex+1} / ${practicalQuestions.length}</span></div></div>
+ <div class="practical-picker"><label for="practical-picker">選擇題目</label><select id="practical-picker">${options}</select><span id="practical-progress">已寫提示詞 ${progress} / ${practicalQuestions.length} 題</span></div>
+ <h2 class="question-title practical-title">${e(q.label)}｜${e(q.title)}</h2><div class="practical-source"><div class="eyebrow">原題</div><div class="source-text">${e(q.body)}</div></div>
+ <div class="practical-copy"><button class="btn" data-action="copy-practical">一鍵複製超能公式及題目</button><p>複製後貼到 AI 工具，請它幫你優化提示詞。</p><span id="practical-copy-status" role="status" aria-live="polite"></span><div id="practical-copy-manual" class="practical-copy-manual" hidden><label for="practical-copy-text">公式與完整題目</label><textarea id="practical-copy-text" rows="10" readonly>${e(practicalCopyText(q))}</textarea></div></div>
+ <section class="practical-tip"><div class="eyebrow">白話拆解</div><h3>這題要你做甚麼？</h3><p>${e(q.tip)}</p><ul>${q.checks.map(c=>`<li>${e(c)}</li>`).join('')}</ul></section>
+ <section class="practical-writing"><h3>輪到你動手</h3><p>本頁不會自動連接 AI。你可以把提示詞複製到你使用的 AI 工具，再把結果或筆記貼回來。</p><label for="practical-prompt" class="prompt-label">我的提示詞 <span id="practical-prompt-count" class="prompt-count" aria-live="off" title="包括空格、標點及換行">${promptCountLabel(q,response.prompt||'')}</span></label><textarea id="practical-prompt" data-practical-field="prompt" rows="6" placeholder="試著寫下你的提示詞…">${e(response.prompt||'')}</textarea><p class="prompt-count-help">字數包括空格、標點及換行。</p><label for="practical-output">AI 輸出或我的筆記 <span>（選填）</span></label><textarea id="practical-output" data-practical-field="output" rows="5" placeholder="可貼上 AI 的回應、圖片描述或自己的檢查筆記…">${e(response.output||'')}</textarea><p class="practical-save">內容會保存在這部裝置的瀏覽器中；不同裝置不會自動同步。</p></section>
+ <details class="practical-reference"><summary>查看文件的參考答案</summary><div class="source-text">${e(q.reference)}</div><p>這是一個參考做法；你的答案可以不同，記得對照題目要求自行檢查。</p></details>
+ <div class="quiz-actions"><button class="btn btn-white" data-action="practical-prev" ${state.practicalIndex===0?'disabled':''}>← 上一題</button><button class="btn" data-action="practical-next" ${state.practicalIndex===practicalQuestions.length-1?'disabled':''}>下一題 →</button><button class="btn btn-white reset-lesson-btn" data-action="reset-practical">重置所有實操題及計時</button></div></section>
+ <footer class="page-footer"><div>需要圖片或影片的題目，請使用合適的外部工具完成。</div></footer>`;
+}
+function render(){
+ const p=getProgress(questions,history);
+ const progress=state.view==='practical'?`已寫 ${practicalCount()} / ${practicalQuestions.length} 題`:`已練習 ${p.answered} / ${p.total} 題`;
+ root.innerHTML=`<div class="shell">${sidebar()}<div class="main-wrap"><header class="topbar"><div class="breadcrumbs">AI 慢慢學　/　<b>${e(currentLabel())}</b></div><div class="top-right"><span class="progress-dot" aria-hidden="true"></span><span id="header-progress">${progress}</span></div></header><main id="main" class="content">${state.view==='home'?home():state.view==='lesson'?lesson():state.view==='practical'?practical():quiz()}</main></div>${mobileNav()}</div>`;
+}
+function goTop(){window.scrollTo({top:0,behavior:'auto'});}
+function showQuestion(force=false){
+ const panel=document.querySelector('.quiz-panel');
+ if(!panel)return;
+ const heading=document.querySelector('.question-title');
+ if(force){panel.scrollIntoView({behavior:'auto',block:'start'});return;}
+ if(!heading)return;
+ const bounds=heading.getBoundingClientRect();
+ if(bounds.top<0 || bounds.bottom>window.innerHeight-72)panel.scrollIntoView({behavior:'auto',block:'start'});
+}
+function resetLesson(moduleId){
+ const lesson=modules.find(m=>m.id===moduleId);
+ if(!lesson || !window.confirm(`確定重置「${lesson.short}」的所有作答紀錄和計時？此操作無法復原。`))return;
+ for(const question of questions)if(question.module===moduleId)delete history[question.id];
+ persistHistory();
+ lessonTimes[moduleId]={elapsedMs:0,manuallyPaused:false};
+ if(timer.id===moduleId)timer={id:moduleId,elapsedMs:0,startedAt:null,manuallyPaused:false};
+ try{localStorage.setItem(lessonTimerKey,JSON.stringify(lessonTimes));}catch{/* Current-session reset still applies. */}
+ state.notice=`已重置「${lesson.short}」的全部題目和計時。`;
+ if(state.view==='quiz'){
+   state.filter=moduleId;state.search='';state.wrongOnly=false;state.wrongIds=new Set();state.index=0;
+   loadQuestionState();render();showQuestion();
+ }else render();
+}
+function resetPractical(){
+ if(!window.confirm('確定重置所有實操題的草稿、筆記和計時？此操作無法復原。'))return;
+ practicalResponses={};persistPractical();
+ lessonTimes.practical={elapsedMs:0,manuallyPaused:false};
+ if(timer.id==='practical')timer={id:'practical',elapsedMs:0,startedAt:null,manuallyPaused:false};
+ try{localStorage.setItem(lessonTimerKey,JSON.stringify(lessonTimes));}catch{/* Current-session reset still applies. */}
+ state.practicalIndex=0;state.notice='已重置所有實操題草稿、筆記和計時。';resumeTimer();render();showQuestion();
+}
+function navigate(view, opts={}){
+ state.notice='';
+ if(state.view==='quiz'||state.view==='practical')pauseTimer();
+ state.view=view;
+ if(opts.module)state.module=opts.module;
+ if(view==='quiz') { state.filter=opts.filter||'all';state.search='';state.wrongOnly=false;state.wrongIds=new Set();state.index=0;loadQuestionState(); }
+ if(view==='practical')selectLessonTimer('practical');
+ render();goTop();
+}
+root.addEventListener('click', ev=>{
+ const el=ev.target.closest('[data-action]'); if(!el)return;
+ if(el.tagName==='A')ev.preventDefault();
+ const action=el.dataset.action;
+ if(action!=='reset-lesson'&&action!=='reset-practical')state.notice='';
+ if(action==='reset-lesson')resetLesson(el.dataset.module);
+ if(action==='reset-practical')resetPractical();
+ if(action==='home')navigate('home');
+ if(action==='lesson')navigate('lesson',{module:el.dataset.module});
+ if(action==='practice')navigate('quiz',{filter:el.dataset.filter});
+ if(action==='practical')navigate('practical');
+ if(action==='copy-superformula')copySuperFormula();
+ if(action==='copy-practical')copyPractical();
+ if(action==='practical-prev'||action==='practical-next'){state.practicalIndex=Math.max(0,Math.min(practicalQuestions.length-1,state.practicalIndex+(action==='practical-next'?1:-1)));render();showQuestion();}
+ if(action==='show-filters')document.querySelector('.filter-card')?.scrollIntoView({behavior:'auto',block:'start'});
+ if(action==='show-question')showQuestion(true);
+ if(action==='submit'){
+   const q=currentQuestion(); if(!q||!state.selected.length)return;
+   state.submitted=true;history[q.id]={selected:[...state.selected],correct:gradeAnswer(q.a,state.selected)};persistHistory();saveTimer();render();
+ }
+ if(action==='retry'){
+   if(!currentQuestion())return;
+   state.selected=[];state.submitted=false;render();
+ }
+ if(action==='timer-toggle'){
+   timer.manuallyPaused=!timer.manuallyPaused;
+   if(timer.manuallyPaused)pauseTimer();else{resumeTimer();saveTimer();}
+ }
+ if(action==='timer-reset'){
+   timer.elapsedMs=0;if(timer.startedAt!==null)timer.startedAt=Date.now();saveTimer();refreshTimer();
+ }
+ if(action==='prev'||action==='next'){
+   const len=filtered().length;state.index=Math.max(0,Math.min(len-1,state.index+(action==='next'?1:-1)));loadQuestionState();render();showQuestion();
+ }
+});
+root.addEventListener('change', ev=>{
+ state.notice='';
+ const el=ev.target;
+ if(el.name==='answer'){
+   const q=currentQuestion(); if(!q||state.submitted)return;
+   if(q.t==='s')state.selected=[el.value];
+   else state.selected=el.checked?[...state.selected,el.value]:state.selected.filter(x=>x!==el.value);
+   render();
+   document.querySelector(`input[name="answer"][value="${el.value}"]`)?.focus();
+ } else if(el.id==='practical-picker'){
+   const value=Number(el.value);if(Number.isInteger(value)&&value>=0&&value<practicalQuestions.length){state.practicalIndex=value;render();showQuestion();}
+ } else if(el.id==='topic-filter'){
+   state.filter=el.value;state.index=0;loadQuestionState();render();document.querySelector('#topic-filter')?.focus();
+ } else if(el.id==='wrong-only'){
+   state.wrongOnly=el.checked;state.wrongIds=new Set(Object.keys(history).filter(id=>history[id] && history[id].correct===false));state.index=0;loadQuestionState();render();document.querySelector('#wrong-only')?.focus();
+ }
+});
+function updateSearch(input){
+ state.notice='';
+ const pos=input.selectionStart;state.search=input.value;state.index=0;loadQuestionState();render();
+ const replacement=document.querySelector('#search');replacement?.focus();if(replacement&&pos!==null)replacement.setSelectionRange(pos,pos);
+}
+root.addEventListener('compositionend',ev=>{ if(ev.target.id==='search')updateSearch(ev.target); });
+root.addEventListener('input',ev=>{
+ const field=ev.target.dataset?.practicalField;
+ if(state.view==='practical'&&(field==='prompt'||field==='output')){
+   const q=practicalQuestions[state.practicalIndex];
+   practicalResponses[q.id]={...(practicalResponses[q.id]||{}),[field]:ev.target.value};persistPractical();
+   if(field==='prompt'){const counter=document.querySelector('#practical-prompt-count');if(counter)counter.textContent=promptCountLabel(q,ev.target.value);}
+   const progress=document.querySelector('#practical-progress'), header=document.querySelector('#header-progress');
+   if(progress)progress.textContent=`已寫提示詞 ${practicalCount()} / ${practicalQuestions.length} 題`;
+   if(header)header.textContent=`已寫 ${practicalCount()} / ${practicalQuestions.length} 題`;
+   return;
+ }
+ if(ev.target.id==='search'&&!ev.isComposing)updateSearch(ev.target);
+});
+render();
+</script>
+</body>
+</html>
