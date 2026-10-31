@@ -32,6 +32,8 @@
 .practical-copy{margin-top:16px;padding:17px 19px;border:1px solid #dce8d7;border-radius:13px;background:#fffefa}.practical-copy p{margin:8px 0 0;color:#748a78;font-size:12px;line-height:1.7}.practical-copy #practical-copy-status{display:block;color:#52735a;font-size:12px;margin-top:7px}.practical-copy-manual[hidden]{display:none}.practical-copy-manual label{display:block;font-size:12px;font-weight:750;margin:12px 0 6px}.practical-copy-manual textarea{display:block;width:100%;min-height:180px;resize:vertical;border:1px solid #d5e2d4;border-radius:10px;background:#f7f9f3;padding:12px;color:#244b3a;font:inherit;font-size:13px;line-height:1.7}.practical-copy-manual textarea:focus-visible{outline:3px solid #d47c42;outline-offset:2px}
 
 .practical-writing label.prompt-label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.practical-writing label .prompt-count{font-size:12px;font-weight:700;color:#688276;font-variant-numeric:tabular-nums}.practical-writing p.prompt-count-help{font-size:11px;color:#8a9d8b;margin:5px 0 0}
+
+.question-copy-support p{margin:7px 0 0;color:#879b8a;font-size:11px;line-height:1.7}.question-copy-support #question-copy-status:not(:empty){display:block;color:#52735a;font-size:12px;margin-top:7px}
 </style>
 </head>
 <body>
@@ -2015,6 +2017,41 @@ function lesson(){
    <div class="actions"><button class="btn btn-white" data-action="home">← 全部課題</button>${num<modules.length-1?`<button class="btn btn-white" data-action="lesson" data-module="${modules[num+1].id}">下一課：${e(modules[num+1].short)} →</button>`:''}</div>
  </div><aside class="lesson-side"><div class="side-card"><div class="eyebrow">學完之後</div><h3>理解了？試試做題。</h3>${m.practiceTarget==='practical'?`<p>揀一道實操題，把題目貼到公式後面，試試請 AI 優化提示詞。</p><button class="btn" data-action="practical">練習實操題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-practical">重置實操題及計時</button>`:`<p>原題保留考試用語，提交後會看到答案和白話解析。</p><button class="btn" data-action="practice" data-filter="${m.id}">練習這課 ${n} 題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${m.id}">重置本課題目及計時</button>`}${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}</div><div class="side-card tip-card"><div class="eyebrow">記住這一句</div><p>${e(m.takeaway)}</p></div></aside></div>${footer()}`;
 }
+function questionCopyText(q){
+ const options=q.o.map((option,i)=>`${String.fromCharCode(65+i)}. ${option}`).join('\n');
+ return `請用一般打工人聽得明的繁體中文，幫我解釋這道選擇題：
+1. 先說明題目在問甚麼，可用生活或工作例子幫助理解。
+2. 解釋答案的理由，並逐個說明每個選項為甚麼正確或錯誤。
+3. 核對題庫參考答案；如題目或答案有爭議，請指出原因，不要勉強當成唯一正解。
+
+題型：${q.t==='s'?'單選題':'多選題'}
+題目：${q.q}
+
+選項：
+${options}
+
+題庫參考答案：${q.a.split('').join('、')}`;
+}
+async function copyQuestionAI(){
+ const q=currentQuestion();if(!q)return;
+ const text=questionCopyText(q),status=document.querySelector('#question-copy-status'),manual=document.querySelector('#question-copy-manual'),input=document.querySelector('#question-copy-text');
+ let copied=false;
+ if(typeof navigator!=='undefined' && navigator.clipboard?.writeText){
+   try{await navigator.clipboard.writeText(text);copied=true;}catch{/* Try the local-file fallback. */}
+ }
+ if(!copied && input && manual){
+   manual.hidden=false;input.value=text;
+   try{input.focus();input.select();input.setSelectionRange(0,input.value.length);copied=typeof document.execCommand==='function'&&document.execCommand('copy');}catch{/* Leave the text available for manual copying. */}
+ }
+ if(copied){
+   if(manual){const wasVisible=!manual.hidden;manual.hidden=true;if(wasVisible)document.querySelector('[data-action="copy-question-ai"]')?.focus({preventScroll:true});}
+   if(status)status.textContent='已複製題目和選項，可以貼到 AI 工具。';
+ }else{
+   if(manual)manual.hidden=false;
+   if(input){input.value=text;try{input.focus();input.select();}catch{/* Text remains visible for manual selection. */}}
+   if(status)status.textContent='未能自動複製，請選取下方文字後自行複製。';
+ }
+}
 function quiz(){
  const list=filtered(); if(state.index>=list.length)state.index=Math.max(0,list.length-1);
  const q=list[state.index], p=getProgress(questions,history);
@@ -2027,7 +2064,7 @@ function quiz(){
     return `<label class="option ${klass}"><input type="${q.t==='s'?'radio':'checkbox'}" name="answer" value="${letter}" ${selected?'checked':''} ${state.submitted?'disabled':''}><span class="option-letter">${letter}</span><span class="option-text">${e(option)}</span></label>`;
   }).join('')}</div>
   ${state.submitted?`<div class="feedback ${gradeAnswer(q.a,state.selected)?'':'incorrect'}" role="status"><strong>${gradeAnswer(q.a,state.selected)?'答對了，繼續保持。':'再睇一次，重點在這裏。'}</strong><p class="correct-answer">題庫參考答案：${e(q.a.split('').join('、'))}</p><p>${e(explanations[q.id])}</p><p class="feedback-note">解釋幫你理解題意；遇到特定版本或規定，記得核對實際情況。</p></div>`:''}
-  <div class="quiz-actions">${!state.submitted?`<button class="btn" data-action="submit" ${state.selected.length?'':'disabled'}>提交答案 →</button>`:`<button class="btn btn-white" data-action="retry">再試一次</button>`}<button class="btn btn-white" data-action="prev" ${state.index===0?'disabled':''}>← 上一題</button><button class="btn btn-white" data-action="next" ${state.index>=list.length-1?'disabled':''}>下一題 →</button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${q.module}">重置本課題目及計時</button></div>`
+  <div class="quiz-actions">${!state.submitted?`<button class="btn" data-action="submit" ${state.selected.length?'':'disabled'}>提交答案 →</button>`:`<button class="btn btn-white" data-action="retry">再試一次</button>`}<button class="btn btn-white" data-action="copy-question-ai" title="複製題目、選項及題庫參考答案">一鍵複製問 AI</button><button class="btn btn-white" data-action="prev" ${state.index===0?'disabled':''}>← 上一題</button><button class="btn btn-white" data-action="next" ${state.index>=list.length-1?'disabled':''}>下一題 →</button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${q.module}">重置本課題目及計時</button></div><div class="question-copy-support"><p>複製內容包括題庫參考答案，方便 AI 解釋及核對。</p><span id="question-copy-status" role="status" aria-live="polite"></span><div id="question-copy-manual" class="practical-copy-manual" hidden><label for="question-copy-text">給 AI 的完整內容</label><textarea id="question-copy-text" rows="10" readonly>${e(questionCopyText(q))}</textarea></div></div>`
   : `<div class="empty"><h2>暫時沒有符合的題目</h2><p>${state.wrongOnly?'目前沒有符合篩選條件的錯題。可取消「只看錯題」再繼續練習。':'試試選擇其他主題，或清除搜尋文字。'}</p></div>`;
  return `<header class="quiz-head"><div><div class="eyebrow">跟住自己的節奏來</div><h1>題目練習</h1><p>一題一題來。選好後，看答案背後的意思。</p></div><div class="quiz-head-actions"><button class="btn btn-white mobile-filter-btn" data-action="show-filters">篩選題目 ↓</button><button class="btn btn-white" data-action="home">← 學習首頁</button></div></header>
   ${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}<div class="quiz-layout"><section class="quiz-panel" aria-live="polite">${qHtml}</section><aside class="filter-card"><h2>選擇練習範圍</h2><div><label for="topic-filter">主題</label><select id="topic-filter"><option value="all" ${state.filter==='all'?'selected':''}>全部題目（100 題）</option>${opts}</select></div><div><label for="search">搜尋題目、解析或題號</label><input id="search" type="search" placeholder="例如 Q33、提示詞" value="${e(state.search)}"></div><label class="check-line"><input id="wrong-only" type="checkbox" ${state.wrongOnly?'checked':''}> 只看曾答錯的題目</label><div class="filter-help">已練習 ${p.answered} / ${p.total} 題<br>記錄只保存在這部裝置；清除瀏覽資料後會消失。<br><br>原題答案依提供的教材；個別舊題有版本或措辭限制。</div><button class="btn btn-white mobile-filter-btn" data-action="show-question">回到題目 ↑</button>${!q&&state.filter!=='all'?`<button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${state.filter}">重置本課題目及計時</button>`:''}</aside></div>${footer()}`;
@@ -2128,6 +2165,7 @@ root.addEventListener('click', ev=>{
  if(action==='practical')navigate('practical');
  if(action==='copy-superformula')copySuperFormula();
  if(action==='copy-practical')copyPractical();
+ if(action==='copy-question-ai')copyQuestionAI();
  if(action==='practical-prev'||action==='practical-next'){state.practicalIndex=Math.max(0,Math.min(practicalQuestions.length-1,state.practicalIndex+(action==='practical-next'?1:-1)));render();showQuestion();}
  if(action==='show-filters')document.querySelector('.filter-card')?.scrollIntoView({behavior:'auto',block:'start'});
  if(action==='show-question')showQuestion(true);
