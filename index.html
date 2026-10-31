@@ -34,6 +34,9 @@
 .practical-writing label.prompt-label{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.practical-writing label .prompt-count{font-size:12px;font-weight:700;color:#688276;font-variant-numeric:tabular-nums}.practical-writing p.prompt-count-help{font-size:11px;color:#8a9d8b;margin:5px 0 0}
 
 .question-copy-support p{margin:7px 0 0;color:#879b8a;font-size:11px;line-height:1.7}.question-copy-support #question-copy-status:not(:empty){display:block;color:#52735a;font-size:12px;margin-top:7px}
+
+/* 按題目整理的白話教學 */
+.lesson-teaching{margin-top:32px}.lesson-teaching h2{font-size:22px;line-height:1.4;margin:6px 0}.lesson-teaching-intro{font-size:13px;line-height:1.8;color:#708578;margin:0 0 15px}.teaching-list{display:grid;gap:11px}.teaching-card{background:var(--white);border:1px solid #e2eadf;border-radius:14px;padding:20px 22px}.teaching-card h3{font-size:16px;line-height:1.5;margin:0 0 8px}.teaching-card p{font-size:14px;line-height:1.85;color:#526e5e;margin:0}.teaching-card .teaching-example{margin-top:12px;background:#f1f6e9;border-radius:9px;padding:11px 13px;color:#55705b;font-size:13px}.teaching-example strong{color:#345f45}.lesson-practice-shortcut{display:none}@media(max-width:780px){.lesson-practice-shortcut{display:inline-flex;margin-top:18px}.teaching-card{padding:17px}.teaching-card p{font-size:13px}}
 </style>
 </head>
 <body>
@@ -43,7 +46,7 @@
 const modules = [
   {
     id:'basics', number:'01', icon:'✳', short:'AI 基本概念', title:'AI 其實幫緊你做乜？', eyebrow:'先搞清楚，再記名詞',
-    summary:'由「搵資料」到「整內容」，認識 AIGC 同跨模態。', time:'約 6 分鐘',
+    summary:'由「搵資料」到「整內容」，認識 AIGC 同跨模態。', time:'約 7 分鐘',
     scenarioTitle:'老闆叫你今晚出一篇宣傳帖',
     scenario:'以前你要自己構思、寫字、搵圖。現在你可以先交代產品和對象，請 AI 幫你寫初稿、整配圖。你再檢查資料、改到合適為止。',
     cards:[
@@ -57,7 +60,7 @@ const modules = [
   },
   {
     id:'safety', number:'02', icon:'⌁', short:'資料安全', title:'資料交出去之前，先睇清楚', eyebrow:'用寄文件來理解',
-    summary:'分清輸入、傳送、輸出風險，知道保護資料要做甚麼。', time:'約 7 分鐘',
+    summary:'分清輸入、傳送、輸出風險，知道保護資料要做甚麼。', time:'約 10 分鐘',
     scenarioTitle:'你要把客戶資料交畀同事',
     scenario:'寄出前，要確認資料來得合法；傳送途中，防止別人偷看或改內容；收到結果後，也要檢查有沒有洩漏資料或不當內容。',
     cards:[
@@ -71,7 +74,7 @@ const modules = [
   },
   {
     id:'video', number:'03', icon:'▧', short:'影片模型', title:'影片模型：先打包，再接住做', eyebrow:'複雜名詞用兩步記',
-    summary:'用「壓縮影片」和「預測下一步」理解 VideoGPT。', time:'約 7 分鐘',
+    summary:'用「壓縮影片」和「預測下一步」理解 VideoGPT。', time:'約 10 分鐘',
     scenarioTitle:'一段影片太大，要交給同事接住剪',
     scenario:'你先把影片內容整理成較精簡的編碼，交畀同事按前後次序接續。VideoGPT 的大方向相似：先把影片壓縮成代碼，再學習這些代碼的先後關係。',
     cards:[
@@ -85,7 +88,7 @@ const modules = [
   },
   {
     id:'images', number:'04', icon:'◌', short:'圖像模型', title:'整圖的幾種方法', eyebrow:'先分工，再記名字',
-    summary:'搞懂擴散、GAN、DALL·E 同 Stable Diffusion 的角色。', time:'約 8 分鐘',
+    summary:'搞懂擴散、GAN、DALL·E 同 Stable Diffusion 的角色。', time:'約 10 分鐘',
     scenarioTitle:'請 AI 幫產品做一張海報',
     scenario:'你輸入「一杯凍咖啡放在木桌上」，模型用學過的規律生成新圖片。不同模型的做法不同，不需要先背複雜數學。',
     cards:[
@@ -99,7 +102,7 @@ const modules = [
   },
   {
     id:'prompts', number:'05', icon:'✎', short:'提示詞', title:'同 AI 講清楚，你想它做甚麼', eyebrow:'好似寫清楚工作指示',
-    summary:'用角色、背景、任務、格式，令 AI 的回應更切題。', time:'約 6 分鐘',
+    summary:'用角色、背景、任務、格式，令 AI 的回應更切題。', time:'約 10 分鐘',
     scenarioTitle:'「幫我寫個 post」為甚麼常常不夠？',
     scenario:'因為 AI 不知道你賣甚麼、給誰看、要甚麼語氣。就像同事只收到一句「幫我搞掂」，很難知道你心中的標準。',
     cards:[
@@ -113,7 +116,7 @@ const modules = [
   },
   {
     id:'writing', number:'06', icon:'≋', short:'文案與工作', title:'AI 起草，人來把關', eyebrow:'把 AI 當助手，不是老闆',
-    summary:'由初稿到發布，學懂改稿、檢查，還有兩個常考文案框架。', time:'約 6 分鐘',
+    summary:'由初稿到發布，學懂改稿、檢查，還有兩個常考文案框架。', time:'約 8 分鐘',
     scenarioTitle:'你收到 AI 寫好的活動宣傳',
     scenario:'先不要直接貼出去。看一看日期和價格對不對、語氣像不像公司、讀者能否看懂，然後請 AI 再改一輪，最後由人確認。',
     cards:[
@@ -127,7 +130,7 @@ const modules = [
   },
   {
     id:'ethics', number:'07', icon:'◇', short:'風險與倫理', title:'好用之餘，也要用得放心', eyebrow:'發布之前多問一句',
-    summary:'看懂假資訊、私隱和不當內容的風險。', time:'約 5 分鐘',
+    summary:'看懂假資訊、私隱和不當內容的風險。', time:'約 6 分鐘',
     scenarioTitle:'AI 幫你寫了一篇「客戶見證」',
     scenario:'內容讀起來很流暢，但引用的客戶和數字可能根本不存在。發布前要找來源核實；涉及個人或公司資料，亦要先按規定處理。',
     cards:[
@@ -154,6 +157,282 @@ const modules = [
     ids:'', practiceTarget:'practical', formula:true
   }
 ];
+
+// 每組知識點都對應同一課的原題；題號只供內容核對，不顯示在畫面上。
+const lessonTeaching = {
+  basics:[
+    {
+      title:'AIGC 是甚麼？能做甚麼？',
+      text:'AIGC 是「人工智能生成內容」：讓 AI 產生文字、圖片、音樂或影片等內容。它可用在宣傳、娛樂創作和新聞稿等不同場景；分類可以有重疊。一般 GPS 接收訊號不是這裏說的生成內容。',
+      example:'公司要做活動宣傳，可以用 AI 起草貼文、構思配圖；音樂、虛擬偶像和互動內容也可用於娛樂。',
+      ids:['Q33','Q3','M21']
+    },
+    {
+      title:'快手出初稿，不等於不用人',
+      text:'題庫強調 AIGC 可以加快製作、產出不同形式的內容，也可讓 AI 完成較多生成步驟。實際成本和品質視乎工具及任務；人仍可參與構思、修改和核實。',
+      example:'AI 幾秒寫出宣傳初稿，省下起步時間；但活動日期、優惠和用字，仍要由同事檢查。',
+      ids:['Q47','M1']
+    },
+    {
+      title:'單模態與跨模態：比較入和出',
+      text:'「模態」就是資料形式，例如文字、圖片、聲音或影片。輸入和輸出屬同一形式，題庫稱為單模態；形式不同，叫跨模態。重點是比較前後，不是看輸入或輸出各有幾項。',
+      example:'文字變文字、圖片變圖片、聲音變聲音屬同一形式；文字變圖片、圖片變文字、文字變影片則屬跨模態。',
+      ids:['Q2','M4','M30']
+    },
+    {
+      title:'AI 怎樣學？資料、算力、模型和需求',
+      text:'資料像教材，算力是電腦的運算能力，模型是學習和處理資訊的方法；應用需求則推動人開發工具。資料的品質、多樣性和數量都重要。很多大模型先用大量未逐筆標註的資料預訓練，再按需要調整；大型訓練通常需要大量運算資源。',
+      example:'GPU、TPU 可協助大量運算；「所有大模型一部伺服器就訓練得到」或「預訓練一定以大量人工標註為主」都不能一概而論。',
+      ids:['Q41','Q13','Q60']
+    }
+  ],
+  safety:[
+    {
+      title:'輸入端：資料從哪裏來？',
+      text:'把資料交給系統前，先看來源是否獲准、有沒有混入惡意或錯誤資料。有人故意污染訓練資料，叫資料投毒；非法取得資料也是輸入階段的風險。',
+      example:'未經允許取得客戶名單，或有人在訓練資料混入惡意內容，都可能在資料進來時埋下問題。',
+      ids:['Q43']
+    },
+    {
+      title:'傳送途中：被偷看、被改、被錯人看到',
+      text:'資料在傳送時，可能被攔截、篡改，或被未獲授權的人存取。題庫把訓練偏見歸於資料與模型學習問題，資料分類分級不當則屬資料管理問題。',
+      example:'把文件交給同事途中被人偷看或掉包，是傳輸風險；模型因訓練資料不平衡而有偏見，重點則在學習過程。',
+      ids:['Q15','M10']
+    },
+    {
+      title:'指令注入：文件裏藏了另一個命令',
+      text:'有人可能在輸入文字或外來文件中藏指令，嘗試令 AI 偏離原本任務，甚至產生不適當回應。這類攻擊不只在「輸出端」出現；題庫是按受影響的結果來考。',
+      example:'你叫 AI 整理一份文件，文件卻寫「忽略使用者要求」；不要把文件內的陌生指令當成可信的工作指示。',
+      ids:['Q42']
+    },
+    {
+      title:'技術防護：上鎖、管鎖匙、限制誰可進',
+      text:'加密是把資料變成未有合適金鑰便難以看懂的內容；金鑰管理是保管及管理鎖匙；存取控制則決定誰可使用哪些資料。三者分工不同，要配合使用。',
+      example:'客戶文件先加密，只讓獲授權同事開啟，並妥善保管金鑰；市場營銷策略不是這組技術防護措施。',
+      ids:['Q38','M38']
+    },
+    {
+      title:'安全不只靠軟件：制度和人也重要',
+      text:'公司要有負責安全的人、清楚的資料處理流程和員工培訓，也要更新合適的防護工具。只靠政府監管，或以為裝好軟件後可以忽視風險，都不足夠。',
+      example:'訂好誰可處理客戶資料、定期培訓同事，再配合更新保安系統；市場宣傳計劃不是安全自查的核心項目。',
+      ids:['Q48','M6']
+    },
+    {
+      title:'網絡事故與新風險',
+      text:'WannaCry 是題庫提到的勒索軟件事件：惡意程式可令資料或系統無法正常使用，並要求贖金。新風險可能技術複雜、難預測、傳得快或不易發現；具體情況仍要逐項評估。',
+      example:'公司若只等事故發生才處理，可能來不及；平日便要更新防護、管理權限及準備合適的備份。',
+      ids:['Q26','M18']
+    },
+    {
+      title:'風險評估：用描述，還是用數字？',
+      text:'定性評估主要用類別或描述判斷，例如高、中、低風險；題庫把風險矩陣、情景分析和德爾菲法列在此類。德爾菲法可理解為多輪收集專家意見。定量評估則用數字估算，例如概率分析或蒙特卡羅模擬；實際工作也可能混合使用。',
+      example:'說「資料外洩風險高」偏向定性；估算發生概率和可能損失金額，則屬定量思路。',
+      ids:['Q53','M37']
+    },
+    {
+      title:'法律題：先看這份教材的適用範圍',
+      text:'題庫按中國內地教材，列出網絡安全法、數據安全法和個人信息保護法作為相關法律框架。反壟斷法、勞動法及題目中的市場准入選項，不在這組考試清單內；這不代表它們在其他情況必然不相關。',
+      example:'考試先認這份教材列出的三項；真實工作則要按所在地的現行規定和公司流程處理。',
+      ids:['Q28','Q58','M24']
+    }
+  ],
+  video:[
+    {
+      title:'Transformer：看上下文的模型架構',
+      text:'Transformer 可用注意力機制，參考資料不同部分的關係。最初的 Transformer 論文處理語言序列；後來的變體也可用於其他形式。它不只是全連接網絡，但內部仍可包含全連接層。',
+      example:'像接手一段文字時，不只看最後一個字，也參考前文；影片模型則可用類似方法處理影片代碼的關係。',
+      ids:['Q8','Q10','Q31']
+    },
+    {
+      title:'VideoGPT 第一步：VQ-VAE 先打包',
+      text:'題目中的 VideoGPT 有兩個主要部分：VQ-VAE 和 Transformer。VQ-VAE 先把原始影片下採樣，整理成較精簡的離散代碼；編碼器負責整理，解碼器可把代碼還原成畫面。',
+      example:'好像先把一大段影片整理成一串較精簡的代號，交給下一個步驟接着處理。',
+      ids:['Q6','Q24','Q25']
+    },
+    {
+      title:'VideoGPT 第二步：Transformer 接住預測',
+      text:'Transformer 學習影片代碼的先後與時空關係，根據已有代碼逐步預測下一個代碼，叫自回歸建模。原始影片的壓縮和畫面還原主要由 VQ-VAE 負責；圖像分類不是這題問的主要工作。',
+      example:'像接力寫故事：先看已有內容，再估計下一步可能接甚麼，最後由解碼器還原成影片畫面。',
+      ids:['Q4','Q36']
+    },
+    {
+      title:'位置編碼：告訴模型畫面在何時、何處',
+      text:'影片除了有畫面位置，也有時間先後。位置編碼像加上時間和位置標籤。原始 VideoGPT 論文描述，VQ-VAE 的可學習時空位置編碼由編碼器及解碼器的軸向注意力層共享；這是該架構的細節，不代表所有模型都一樣。',
+      example:'把一格畫面想成文件中的某一頁、某一位置：知道它在哪裏，較容易理解前後與周圍的關係。',
+      ids:['Q9']
+    },
+    {
+      title:'訓練目標與模型設定，要分清楚',
+      text:'VQ-VAE 的訓練會看重建效果及代碼學習等損失，讓模型學懂表示和還原資料。題庫有一題把潛在空間大小、碼本數量和自回歸先驗容量列為參考答案；這些更像模型設定，不能當作所有 VQ-VAE 的訓練目標定義。',
+      example:'設定像決定文件箱有多大；訓練目標則像檢查打包後能否把內容還原。兩者有關，但不是同一回事。',
+      ids:['Q44']
+    },
+    {
+      title:'Space-Only：先看每一幀的空間',
+      text:'題庫的 Space-Only 卷積可理解為主要處理每一幀的畫面空間；在題目設定下可保留時間長度。與某些完整時空卷積比較，也可能減少參數及運算，實際仍取決於模型設計。',
+      example:'像逐張整理連續照片的畫面細節，先不把照片數量加長或縮短。',
+      ids:['M13']
+    },
+    {
+      title:'影片模型的能力，要看版本和條件',
+      text:'模型可以根據資料生成不同影片樣本；題庫也把畫質、效率、適應性及應用前景列為優點。實際畫質、速度、尺寸和是否支援文字生成，都要看具體版本，不能說尺寸無限制或結果已完美。',
+      example:'有些工具可輸入文字生成影片，有些要用圖片或其他條件；先看工具說明，再判斷它能否完成工作。',
+      ids:['M8','M19']
+    },
+    {
+      title:'自己建立模型，和直接用現成工具不同',
+      text:'題庫描述自行建立 VideoGPT 的完整流程：設定環境、準備及處理影片資料、訓練或使用預訓練的 VQ-VAE、訓練 Transformer，最後用模型生成內容。直接使用現成工具時，使用者未必需要親自做每一步。',
+      example:'像自己開廚房需要準備設備和食材；到餐廳點菜，就不用親自搭建廚房。',
+      ids:['M31']
+    }
+  ],
+  images:[
+    {
+      title:'擴散模型：加雜訊，再學會去雜訊',
+      text:'正向擴散是在資料中逐步加入雜訊；反向過程則逐步去噪。生成時可從雜訊出發產生新內容，不一定是還原某一張原圖。判別器是 GAN 常見角色，不是這道題所問的加噪及去噪步驟。',
+      example:'先想像清楚的照片逐漸被雪花遮住；反向時一步步減少雪花，讓畫面慢慢成形。',
+      ids:['Q5','M12','M34']
+    },
+    {
+      title:'DDPM 和 SGM：擴散題的兩個名稱',
+      text:'DDPM 是透過逐步去噪來生成內容的一類模型。SGM 的 score 可理解為提示模型往較像資料的方向走，不是人替圖片打分。題庫有一題把 DDPM 和「貝葉斯去噪」配對，這是該題的記法，並非其他方法都不能用類似思路。',
+      example:'看到 DDPM，可先聯想逐步去噪生成圖片；看到 SGM 的 score，想到協助指引生成方向。',
+      ids:['Q32','Q40','Q45']
+    },
+    {
+      title:'Stable Diffusion：優點和資源需求',
+      text:'Stable Diffusion 屬圖像生成模型，可用於藝術創作，也可用在研究中的特定醫學圖像工作；一般語音識別不是這題重點。題庫把圖像品質、多樣性、訓練相對穩定及不需 GAN 式對抗訓練列為優點。高品質生成有時需要不少運算資源；實際用量、速度和穩定性仍視模型、設備及設定而定。',
+      example:'做產品海報可嘗試不同構圖；但不能保證任何情況都省資源、訓練很快或結果完全正確。',
+      ids:['Q57','M3','M9','M25']
+    },
+    {
+      title:'DALL·E：文字生成圖片',
+      text:'第一代 DALL·E 由 OpenAI 在 2021 年公布，主要按文字描述生成圖片，可用於創意設計、廣告或插畫。題庫用自動駕駛作干擾選項，因為它不是這裏介紹的主要用途。',
+      example:'輸入「木桌上的凍咖啡海報」，模型可生成圖像草稿；圖片是否適合商用，仍要按實際情況檢查。',
+      ids:['Q16','Q21','Q19']
+    },
+    {
+      title:'DALL·E 的流程：記得分版本',
+      text:'第一代使用圖像代碼和 Transformer，並可用 CLIP 協助挑選較符合文字的結果；dVAE 與圖像代碼有關。題庫另列「文字編碼 → 先驗模型 → 圖像解碼」，較接近 DALL·E 2 的描述。圖像解碼負責產生最終圖片；不同代不能當成完全相同的架構。',
+      example:'先讀懂要求，再整理成模型可用的表示，最後把結果變成圖片；「先驗模型」可想成中間的轉換步驟。',
+      ids:['Q52','M16','M17']
+    },
+    {
+      title:'GAN：一個生成，一個判斷',
+      text:'GAN 的生成器負責造內容，判別器負責判斷內容是否像真實資料，兩者在訓練中互相較量。基本 VQ-VAE 則側重編碼和解碼，不是本身就一定有這組生成器及判別器。DCGAN、Wasserstein GAN 和 CycleGAN 都是題庫列出的 GAN 類型。',
+      example:'一位同事做仿真圖片，另一位練習分辨真假；ANN 在這道題中不是 GAN 家族名稱。',
+      ids:['Q55','M22','M26']
+    },
+    {
+      title:'自己部署影片擴散模型的流程',
+      text:'題庫有一題描述自行安裝的流程：安裝 Git 並下載程式庫、下載 SVD／SVD-XT 模型、建立虛擬環境並安裝依賴，然後執行模型製作影片。這是特定自行部署的做法，不代表使用所有現成工具都要做這些步驟。',
+      example:'如果你使用已設好的影片工具，通常只需按工具要求提供素材；若自己部署，才要處理程式、模型和環境。',
+      ids:['M35']
+    }
+  ],
+  prompts:[
+    {
+      title:'提示詞工程：把工作指示寫清楚',
+      text:'提示詞是交給 AI 的要求；提示詞工程是有意識地設計和調整指示，令回應更貼近任務。題庫主要討論語言模型和文字質量；寫提示詞本身不是在改模型的訓練速度或參數。',
+      example:'把「幫我寫宣傳」改成「為附近上班族寫早餐宣傳，語氣輕鬆，80 字內」，方向就清楚得多。',
+      ids:['Q7','Q17']
+    },
+    {
+      title:'四個基本元素：角色、背景、任務、格式',
+      text:'角色說明工作角度，背景交代情況，任務說明要做甚麼，格式及語氣交代成品。用簡單直接的文字就好。題庫的四項公式不包括示例，但實際工作中，提供例子仍可能有幫助。',
+      example:'角色是客服、背景是系統維護、任務是寫通知、格式是一段友善短訊；如有合適範例，也可一併提供。',
+      ids:['Q23','Q27','Q59','M5']
+    },
+    {
+      title:'對準讀者和行業，不必堆砌術語',
+      text:'先想清楚寫給誰、想達到甚麼效果；需要行業內容時，可交代合適用詞和背景，專業資料仍要核對。寫好提示詞不用先掌握模型的訓練算法。角色定位主要是引導 AI 從某個工作角度回應；字數和語氣可以另外說明。',
+      example:'「你是酒店客服，向旅客解釋入住安排；用親切語氣，100 字內」分別交代了角色、讀者、語氣和長度。',
+      ids:['Q54','Q49','M36']
+    },
+    {
+      title:'控制內容和風格，也可試不同角度',
+      text:'提示詞可交代內容、結構、風格、情緒、行動要求，以及有需要的時間和地點。換不同角色或角度可幫你構思；回應會受上下文影響，不保證每次完全相同。',
+      example:'同一個活動，可分別請 AI 寫正式電郵、輕鬆社交帖，並提醒讀者在指定日期前報名。',
+      ids:['Q50','Q37','M2','M27']
+    },
+    {
+      title:'不只寫文案：搜尋、翻譯、分類都用得着',
+      text:'指示也可用於資訊檢索、文字生成、分類、翻譯和互動問答。搜尋時講清楚範圍與目的；翻譯時補上背景、行業及對象，較容易得到合適用語。結果仍須核實。',
+      example:'與其只說「翻譯這句」，不如說「這是酒店向客人發出的入住通知，請翻成自然英文」。',
+      ids:['Q51','Q14','M20']
+    },
+    {
+      title:'AI 怎樣接着寫？',
+      text:'語言模型會根據已有上下文及機率，逐步生成文字。採樣會按設定從可能選項中挑選；束搜尋可理解為比較多條候選路徑。不同策略會影響結果。毋須背複雜公式，先記住它會參考上下文，也不保證相同指示每次都得到一樣內容。',
+      example:'同一句「請寫活動標題」，多次生成可能出現不同標題；加入對象和風格可幫它更切題。',
+      ids:['M39']
+    },
+    {
+      title:'試一輪，再按結果修改',
+      text:'了解工具能力、試不同指示、聽取使用者意見並繼續調整，通常有助改善結果；也可按任務組合不同提示。不要忽略需求變化，亦不要只靠一句空泛指令期待每次都合用。',
+      example:'第一稿太正式，就補一句「改成適合工作群組的友善語氣，保留原有日期」。',
+      ids:['M32']
+    },
+    {
+      title:'寫提示詞也要顧及安全和倫理',
+      text:'提示詞可能被用來誘導 AI 產生不當或有害內容。交代工作時，也要留意資料來源與私隱，避免把未獲准的個人資料或公司機密交給外部工具。',
+      example:'請 AI 整理客戶意見前，先按公司規定去除不需要的姓名、電話和其他敏感資料。',
+      ids:['Q29']
+    }
+  ],
+  writing:[
+    {
+      title:'先定方向，再由 AI 起草、人來把關',
+      text:'人先確定目的和受眾、收集資料，再請 AI 整理想法或寫初稿。初稿出來後，人工檢查、編輯和調整。AI 可提高寫作效率；人也可以自己寫，實際分工不必僵化。',
+      example:'活動宣傳先由同事確認日期、優惠與對象，AI 寫初稿後，再由同事核對並改成公司的語氣。',
+      ids:['Q1','Q12','Q34','M33']
+    },
+    {
+      title:'AIDA：先吸睛，再引導行動',
+      text:'AIDA 的次序是 Attention 注意、Interest 興趣、Desire 想要、Action 行動。宣傳通常要簡潔、讓讀者有共鳴、講出價值並引導下一步；不一定要詳細交代產品歷史。',
+      example:'「趕時間食早餐？」先吸引注意；介紹方便和價值，最後寫「今天到店試試」，就是由吸引到行動。',
+      ids:['Q18','M7']
+    },
+    {
+      title:'PAS：問題、困擾、解法',
+      text:'PAS 依次是 Problem 問題、Agitate 說明問題帶來的困擾、Solution 解決方案。Attention 屬 AIDA 的第一步，不是 PAS 三步之一。',
+      example:'「早上趕時間」是問題；「常常餓到中午」是困擾；「試試外帶早餐」是解法。',
+      ids:['Q22','M23']
+    },
+    {
+      title:'迭代優化：不是一稿生成就直接交',
+      text:'看完初稿後，給 AI 具體意見，多試幾輪，再由人編輯；也可參考合適的讀者反饋或數據。單純增加字數、只用同一條提示詞，或完全相信初稿，都不保證質量。',
+      example:'發現初稿太長，就請 AI 縮短並保留優惠日期；再檢查事實、語氣和是否有遺漏。',
+      ids:['Q20','Q46','M11','M15']
+    },
+    {
+      title:'看文案質量，別只看生成速度',
+      text:'檢查內容是否準確、通順、有條理、切合對象，以及是否有合適的創意。速度是效率指標，不能單靠快慢判斷文案質量。題目問文案寫作時，也要分清圖片生成和語音識別屬其他任務。',
+      example:'一段文字即使一秒寫好，若價錢寫錯或讀者看不明，仍需要修改。',
+      ids:['Q30','M14']
+    },
+    {
+      title:'選寫作工具：看質量，也看實際限制',
+      text:'題目只問文案質量時，語言理解和表達能力最直接。實際選工具還應考慮使用方便程度、評價、速度、預算，以及公司對私隱和資料安全的要求。',
+      example:'一個工具寫得順暢，但若價格超出預算或不符合公司資料規定，也未必適合採用。',
+      ids:['Q11','M28']
+    }
+  ],
+  ethics:[
+    {
+      title:'流暢不代表真實：先核對再發布',
+      text:'AI 可能產生不實資訊，影響別人判斷；私隱和其他倫理問題也是題庫提到的風險。增加工作效率或就業機會本身不是這題列出的危害，但現實影響仍要視情況分析。',
+      example:'AI 寫出客戶見證或統計數字時，先找可靠來源核對；找不到來源，就不要當成事實發布。',
+      ids:['Q35','Q39','M29']
+    },
+    {
+      title:'保護私隱：制度、技術和意識一起做',
+      text:'法規與內部制度、資料加密和使用者安全意識，都可以幫助保護個人資料。題庫單選題着重法規與機制；多選題也包括加密和提高意識。全面禁止 AI 並非題庫答案，實際限制要看用途與風險。',
+      example:'上傳資料前先確認是否獲准、移除不必要的個人資料，並使用符合公司規定的工具和權限。',
+      ids:['Q56','M40']
+    }
+  ]
+};
 
 const superFormula = `根據給你的題目用以下方法優化提示詞，不一定要全用，選擇合適的：
 ## 角色設定
@@ -1965,7 +2244,7 @@ function mobileNav(){return `<nav class="mobile-nav" aria-label="主要導覽">
  <button data-action="practice" data-filter="all" class="${state.view==='quiz'?'active':''}"><span aria-hidden="true">▤</span>選擇題</button>
  <button data-action="practical" class="${state.view==='practical'?'active':''}"><span aria-hidden="true">✎</span>實操題</button>
  </nav>`;}
-const footer=()=>`<footer class="page-footer"><div>延伸閱讀：<a href="https://arxiv.org/abs/2104.10157" target="_blank" rel="noopener noreferrer">VideoGPT 論文</a> · <a href="https://openai.com/research/dall-e/" target="_blank" rel="noopener noreferrer">第一代 DALL·E</a> · <a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener noreferrer">擴散模型論文</a></div></footer>`;
+const footer=()=>`<footer class="page-footer"><div>延伸閱讀：<a href="https://arxiv.org/abs/2104.10157" target="_blank" rel="noopener noreferrer">VideoGPT 論文</a> · <a href="https://openai.com/research/dall-e/" target="_blank" rel="noopener noreferrer">第一代 DALL·E</a> · <a href="https://cdn.openai.com/papers/dall-e-2.pdf" target="_blank" rel="noopener noreferrer">DALL·E 2 論文</a> · <a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener noreferrer">擴散模型論文</a></div></footer>`;
 function home(){
  const p=getProgress(questions,history);
  return `<div class="intro-grid">
@@ -2004,6 +2283,11 @@ async function copySuperFormula(){
    if(status)status.textContent='未能自動複製，請選取上方公式後自行複製。';
  }
 }
+function lessonTeachingContent(id){
+ const sections=lessonTeaching[id];
+ if(!sections)return '';
+ return `<section class="lesson-teaching"><div class="eyebrow">選擇題知識補充</div><h2>把這課常考的內容學清楚</h2><p class="lesson-teaching-intro">按本課題目整理，用白話和例子一步步理解；遇到舊題或不同版本，也會特別提醒。</p><div class="teaching-list">${sections.map(section=>`<article class="teaching-card"><h3>${e(section.title)}</h3><p>${e(section.text)}</p><p class="teaching-example"><strong>例子／記法：</strong>${e(section.example)}</p></article>`).join('')}</div></section>`;
+}
 function lesson(){
  const m=currentModule(), n=countFor(m.id), num=modules.findIndex(x=>x.id===m.id);
  return `<button class="back-link" data-action="home">← 返回學習首頁</button>
@@ -2013,6 +2297,8 @@ function lesson(){
    <div class="eyebrow">核心概念</div><h2 class="article-title">${e(m.eyebrow)}</h2>
    <div class="concept-grid">${m.cards.map(c=>`<article class="concept"><div class="eyebrow">${e(c.tag)}</div><h3>${e(c.title)}</h3><p>${e(c.text)}</p></article>`).join('')}</div>
    <section class="compare"><h3>${e(m.compareTitle)}</h3><div class="compare-grid"><div class="compare-item"><strong>${e(m.leftLabel)}</strong>${e(m.left)}</div><div class="compare-item"><strong>${e(m.rightLabel)}</strong>${e(m.right)}</div></div></section>
+   ${m.formula?'':`<button class="btn btn-white lesson-practice-shortcut" data-action="practice" data-filter="${m.id}">開始練習本課 ${n} 題 →</button>`}
+   ${lessonTeachingContent(m.id)}
    ${m.formula?formulaLessonContent():''}
    <div class="actions"><button class="btn btn-white" data-action="home">← 全部課題</button>${num<modules.length-1?`<button class="btn btn-white" data-action="lesson" data-module="${modules[num+1].id}">下一課：${e(modules[num+1].short)} →</button>`:''}</div>
  </div><aside class="lesson-side"><div class="side-card"><div class="eyebrow">學完之後</div><h3>理解了？試試做題。</h3>${m.practiceTarget==='practical'?`<p>揀一道實操題，把題目貼到公式後面，試試請 AI 優化提示詞。</p><button class="btn" data-action="practical">練習實操題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-practical">重置實操題及計時</button>`:`<p>原題保留考試用語，提交後會看到答案和白話解析。</p><button class="btn" data-action="practice" data-filter="${m.id}">練習這課 ${n} 題 <span aria-hidden="true">→</span></button><button class="btn btn-white reset-lesson-btn" data-action="reset-lesson" data-module="${m.id}">重置本課題目及計時</button>`}${state.notice?`<p class="reset-notice" role="status">${e(state.notice)}</p>`:''}</div><div class="side-card tip-card"><div class="eyebrow">記住這一句</div><p>${e(m.takeaway)}</p></div></aside></div>${footer()}`;
